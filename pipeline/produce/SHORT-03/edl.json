@@ -1,0 +1,22 @@
+{
+  "id": "SHORT-03_HANDLE_ANYWAY",
+  "segments": [
+    {"src": "pipeline/produce/SHORT-03/clips/s1_hook.mp4", "in": 0.0, "out": 5.5, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/clips/s2_approach.mp4", "in": 0.0, "out": 6.0, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/clips/s3_handle.mp4", "in": 0.0, "out": 5.5, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/clips/s4_inside.mp4", "in": 0.0, "out": 4.0, "clip_gain": 1.0}
+  ],
+  "captions": [
+    {"text": "NO FOOD INSIDE.", "start": 0.3, "dur": 2.6},
+    {"text": "HE OPENS THE DOOR ANYWAY.", "start": 3.0, "dur": 2.5},
+    {"text": "3 AM. COLORADO.", "start": 5.9, "dur": 2.2},
+    {"text": "THIS ISN'T HIS FIRST TIME.", "start": 8.4, "dur": 2.8},
+    {"text": "BEARS LEARN WHERE THE FOOD IS.", "start": 11.9, "dur": 2.9},
+    {"text": "THEY NEVER FORGET.", "start": 15.0, "dur": 2.1},
+    {"text": "ONE DAY: THE WRONG DOOR.", "start": 17.4, "dur": 2.9}
+  ],
+  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.5},
+  "vo": "pipeline/produce/SHORT-03/vo.mp3",
+  "vo_gain": 1.0,
+  "music": null
+}
