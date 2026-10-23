@@ -1,8 +1,9 @@
 # SHORT-03 — Upload Kit (v2 ENHANCED)
 
-**Video:** `output/SHORT-03_FINAL.mp4` (21.3s · 1080×1920 · 30fps · h264+aac)
-**Version:** v2 — user feedback applied: punchy hook commentary, cinematic sound
-design (impact/riser/heartbeat/dark bed with VO-ducking), punch-in edit + freeze drama.
+**Video:** `output/SHORT-03_FINAL.mp4` (27.4s · 1080×1920 · 30fps · h264+aac)
+**Version:** v3 FINAL — user feedback applied: punchy hook commentary, **voice-01**
+(picked by user in audition, slow-gravitas narrator), cinematic sound design
+(impact/riser/heartbeat/dark bed with VO-ducking), punch-in + slow-mo freeze drama.
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 
 ---

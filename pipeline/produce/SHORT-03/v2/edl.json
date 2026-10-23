@@ -1,20 +1,21 @@
 {
-  "id": "SHORT-03_HANDLE_ANYWAY_V2",
+  "id": "SHORT-03_HANDLE_ANYWAY_V3",
   "segments": [
-    {"src": "pipeline/produce/SHORT-03/v2/clips/s1a_action.mp4", "in": 0.0, "out": 4.0, "clip_gain": 1.0},
-    {"src": "pipeline/produce/SHORT-03/v2/clips/s1b_freeze.mp4", "in": 0.0, "out": 1.5, "clip_gain": 1.0},
-    {"src": "pipeline/produce/SHORT-03/clips/s2_approach.mp4", "in": 0.0, "out": 6.0, "clip_gain": 0.85},
-    {"src": "pipeline/produce/SHORT-03/clips/s3_handle.mp4", "in": 0.0, "out": 5.0, "clip_gain": 0.85},
-    {"src": "pipeline/produce/SHORT-03/clips/s4_inside.mp4", "in": 0.0, "out": 3.0, "clip_gain": 0.85}
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s1a_action.mp4", "in": 0.0, "out": 7.3, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s1b_freeze.mp4", "in": 0.0, "out": 2.5, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s2_approach.mp4", "in": 0.0, "out": 7.0, "clip_gain": 0.85},
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s3_handle.mp4", "in": 0.0, "out": 6.0, "clip_gain": 0.85},
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s4_inside.mp4", "in": 0.0, "out": 2.8, "clip_gain": 0.85}
   ],
   "captions": [
-    {"text": "3 AM. NOBODY AWAKE.", "start": 0.25, "dur": 1.7},
-    {"text": "WATCH THE HANDLES.", "start": 2.05, "dur": 1.7},
-    {"text": "THE PAUSE.", "start": 4.3, "dur": 1.3},
-    {"text": "A HABIT, NOT AN ACCIDENT.", "start": 7.0, "dur": 2.2},
-    {"text": "THE CAR WAS EMPTY.", "start": 9.2, "dur": 1.8},
-    {"text": "THE ULTIMATE PRICE.", "start": 13.2, "dur": 2.4},
-    {"text": "HE'LL KEEP COMING BACK.", "start": 16.8, "dur": 2.3}
+    {"text": "3 AM. NOBODY AWAKE.", "start": 0.3, "dur": 2.2},
+    {"text": "WATCH THE HANDLES.", "start": 3.1, "dur": 2.2},
+    {"text": "THE PAUSE.", "start": 7.5, "dur": 1.9},
+    {"text": "A HABIT, NOT AN ACCIDENT.", "start": 11.4, "dur": 2.4},
+    {"text": "THE CAR WAS EMPTY.", "start": 13.6, "dur": 2.0},
+    {"text": "NOT HUNGER. A HABIT.", "start": 16.2, "dur": 2.3},
+    {"text": "THE ULTIMATE PRICE.", "start": 20.2, "dur": 2.6},
+    {"text": "HE'LL KEEP COMING BACK.", "start": 23.2, "dur": 2.2}
   ],
   "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.8},
   "vo": "pipeline/produce/SHORT-03/v2/vo.mp3",
