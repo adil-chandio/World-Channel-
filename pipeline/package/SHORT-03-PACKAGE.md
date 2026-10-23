@@ -1,9 +1,11 @@
-# SHORT-03 — Upload Kit (v4 QUALITY-OVERDRIVE)
+# SHORT-03 — Upload Kit (v5 GFX FINALE)
 
-**Video:** `output/SHORT-03_FINAL.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
-**Version:** v4 — clip quality enhanced (denoise → 2x lanczos upscale → unsharp →
-contrast/sat grade → CAS), parallax drift editing, premium soft SFX (ticks, subdrop,
-heartbeats — non-harsh), voice-01 narrator. CTA is short-only (no long-video mention).
+**Video:** `output/SHORT-03_FINAL_GFX.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
+**Version:** v5 — motion-graphics layer added via `tools/keyframe_elements.py`:
+keyframed PNG elements (3:02 AM timestamp, blinking-style REC, viewfinder corners,
+red circle on the handle, white glow+ring on "THE PAUSE", CPW credit lower-third fly-in,
+arrow, warning triangle), impact flashes + camera shakes, soft vignette. Base v4
+quality stack retained (1440p enhanced master, voice-01, premium soft SFX, short-only CTA).
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 
 ---
