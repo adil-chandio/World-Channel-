@@ -4,22 +4,9 @@
 Usage:
     python3 tools/sound_design.py plan.json --vo vo.mp3 --out bed.wav
 
-Plan JSON:
-{
-  "duration": 22.8,
-  "chords": [{"at": 0.0, "dur": 8.0, "notes": [55, 110, 164.81, 220], "gain": 0.5}],
-  "events": [
-    {"type": "impact",    "at": 0.15, "gain": 0.9,  "freq": 52, "dur": 1.6},
-    {"type": "riser",     "at": 3.2,  "gain": 0.5,  "dur": 0.9},
-    {"type": "whoosh",    "at": 4.1,  "gain": 0.45, "dur": 0.5},
-    {"type": "heartbeat", "at": 4.4,  "gain": 0.8},
-    {"type": "pulse",     "at": 6.0,  "gain": 0.5,  "freq": 55},
-    {"type": "pluck",     "at": 7.2,  "gain": 0.35, "freq": 440}
-  ],
-  "duck": {"amount": 0.62, "attack": 0.10, "release": 0.45},
-  "peak": 0.62
-}
-Everything is subtle by design: dark, warm, never harsh.
+Event types: impact | riser | whoosh | heartbeat | pulse | pluck | tick | subdrop
+Design rules: dark/warm, soft transients, high-end rolled off — never harsh.
+Master: tanh soft-clip glue + peak normalize.
 """
 from __future__ import annotations
 
@@ -41,7 +28,6 @@ def _t(dur: float) -> np.ndarray:
 
 
 def spectral_tilt(x: np.ndarray, cutoff: float, order: float = 2.0) -> np.ndarray:
-    """Zero-phase lowpass via rFFT (order=2 gentle, higher = tighter)."""
     n = len(x)
     X = np.fft.rfft(x)
     f = np.fft.rfftfreq(n, 1 / SR)
@@ -53,53 +39,54 @@ def bandpass(x: np.ndarray, lo: float, hi: float) -> np.ndarray:
     n = len(x)
     X = np.fft.rfft(x)
     f = np.fft.rfftfreq(n, 1 / SR)
-    m = (f >= lo) & (f <= hi)
-    if m.any():
-        edge = np.ones_like(f)
-        ramp = 256.0
-        edge = np.clip(np.minimum((f - lo) / ramp, (hi - f) / ramp), 0, 1)
-        X *= edge
+    ramp = 512.0
+    edge = np.clip(np.minimum((f - lo) / ramp, (hi - f) / ramp), 0, 1)
+    X *= edge
     return np.fft.irfft(X, n)
 
 
 def make_impact(dur: float, freq: float, rng: np.random.Generator) -> np.ndarray:
+    """Deep cinematic hit: sub body + soft air, tiny soft click (never sharp)."""
     t = _t(dur)
     sweep = freq * np.exp(-t * 1.1) * 0.5 + freq * 0.6
     ph = 2 * np.pi * np.cumsum(sweep) / SR
-    body = np.sin(ph) * np.exp(-t * 2.6)
-    air = spectral_tilt(rng.standard_normal(len(t)), 220, 1.6) * np.exp(-t * 7.0) * 0.9
-    click = spectral_tilt(rng.standard_normal(len(t)), 1800, 2.0) * np.exp(-t * 40) * 0.25
-    return body + air + click
+    body = np.sin(ph) * np.exp(-t * 2.3)
+    sub = np.sin(2 * np.pi * 30 * t) * np.exp(-t * 1.7) * 0.55
+    air = spectral_tilt(rng.standard_normal(len(t)), 170, 1.6) * np.exp(-t * 6.5) * 0.55
+    click = spectral_tilt(rng.standard_normal(len(t)), 1100, 2.2) * np.exp(-t * 60) * 0.06
+    return body + sub + air + click
 
 
 def make_riser(dur: float, rng: np.random.Generator) -> np.ndarray:
+    """Smooth tension lift — airy, not hissy."""
     t = _t(dur)
     env = (t / dur) ** 2.2
     noise = rng.standard_normal(len(t))
-    low = bandpass(noise, 120, 700)
-    high = bandpass(noise, 700, 4200)
+    low = bandpass(noise, 100, 600)
+    high = bandpass(noise, 600, 3000)
     xfade = t / dur
     nz = low * (1 - xfade) + high * xfade
-    sweep = 160 * (1 + 3.2 * (t / dur) ** 1.6)
+    sweep = 150 * (1 + 3.0 * (t / dur) ** 1.6)
     ph = 2 * np.pi * np.cumsum(sweep) / SR
-    tone = np.sin(ph) * 0.35
-    return (nz * 0.8 + tone) * env
+    tone = np.sin(ph) * 0.28
+    return (nz * 0.75 + tone) * env
 
 
 def make_whoosh(dur: float, rng: np.random.Generator) -> np.ndarray:
     t = _t(dur)
-    env = np.sin(np.pi * t / dur) ** 2
-    nz = bandpass(rng.standard_normal(len(t)), 260, 2600)
-    return nz * env
+    env = np.sin(np.pi * t / dur) ** 1.8
+    nz = bandpass(rng.standard_normal(len(t)), 180, 2800)
+    return nz * env * 0.9
 
 
 def make_heartbeat(gain_env: float = 1.0) -> np.ndarray:
-    out = np.zeros(int(0.75 * SR))
-    for at, g in ((0.0, 1.0), (0.22, 0.72)):
-        t = _t(0.35)
-        thump = np.sin(2 * np.pi * 48 * t) * np.exp(-t * 18) * g
+    out = np.zeros(int(0.85 * SR))
+    for at, g in ((0.0, 1.0), (0.24, 0.72)):
+        t = _t(0.42)
+        thump = np.sin(2 * np.pi * 44 * t) * np.exp(-t * 15) * g
+        sub = np.sin(2 * np.pi * 29 * t) * np.exp(-t * 10) * 0.35 * g
         i = int(at * SR)
-        out[i:i + len(thump)] += thump
+        out[i:i + len(thump)] += thump + sub
     return out * gain_env
 
 
@@ -116,8 +103,24 @@ def make_pluck(dur: float, freq: float) -> np.ndarray:
     return x * np.exp(-t * 5.0)
 
 
+def make_tick() -> np.ndarray:
+    """Soft caption-cue blip: warm, quiet, zero ear-poke."""
+    t = _t(0.10)
+    x = np.sin(2 * np.pi * 980 * t) * np.exp(-t * 65)
+    x += np.sin(2 * np.pi * 1470 * t) * np.exp(-t * 80) * 0.35
+    x += spectral_tilt(np.random.default_rng(3).standard_normal(len(t)), 2400, 2.0) * np.exp(-t * 90) * 0.18
+    return x * 0.45
+
+
+def make_subdrop(dur: float = 1.0) -> np.ndarray:
+    """Deep sub sweep for the freeze/payoff moment."""
+    t = _t(dur)
+    sweep = 60 * np.exp(-t * 1.5) + 26
+    ph = 2 * np.pi * np.cumsum(sweep) / SR
+    return np.sin(ph) * np.exp(-t * 2.0)
+
+
 def make_chord(dur: float, notes: list[float]) -> tuple[np.ndarray, np.ndarray]:
-    """Slow evolving pad -> (left, right) for gentle stereo width."""
     t = _t(dur + 0.6)
     l = np.zeros_like(t)
     r = np.zeros_like(t)
@@ -138,13 +141,11 @@ def make_chord(dur: float, notes: list[float]) -> tuple[np.ndarray, np.ndarray]:
 
 
 def vo_envelope(vo_path: Path) -> np.ndarray:
-    """Mono VO samples at SR."""
     proc = subprocess.run(
         [ffmpeg_exe(), "-i", str(vo_path), "-f", "s16le", "-ac", "1",
          "-ar", str(SR), "-"],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-    x = np.frombuffer(proc.stdout, dtype=np.int16).astype(np.float64) / 32768.0
-    return x
+    return np.frombuffer(proc.stdout, dtype=np.int16).astype(np.float64) / 32768.0
 
 
 def duck_curve(x: np.ndarray, n: int, amount: float, attack: float, release: float) -> np.ndarray:
@@ -154,7 +155,6 @@ def duck_curve(x: np.ndarray, n: int, amount: float, attack: float, release: flo
     rms = np.sqrt((xr ** 2).mean(axis=1) + 1e-12)
     ref = np.percentile(rms, 92) + 1e-9
     env = np.clip(rms / ref, 0, 1)
-    # smooth (exponential moving average with attack/release asymmetry)
     sm = np.empty_like(env)
     cur = 0.0
     a = np.exp(-win / (attack * SR))
@@ -208,14 +208,18 @@ def main() -> None:
             s = make_pulse(float(ev.get("dur", 0.5)), float(ev.get("freq", 55))) * g
         elif typ == "pluck":
             s = make_pluck(float(ev.get("dur", 0.7)), float(ev.get("freq", 440))) * g
+        elif typ == "tick":
+            s = make_tick() * g
+        elif typ == "subdrop":
+            s = make_subdrop(float(ev.get("dur", 1.0))) * g
         else:
             raise SystemExit(f"unknown event type: {typ}")
-        pan = float(ev.get("pan", 0.0))  # -1..1
-        gl = g * 0 + np.sqrt(0.5 * (1 - pan))
+        pan = float(ev.get("pan", 0.0))
+        gl = np.sqrt(0.5 * (1 - pan))
         gr = np.sqrt(0.5 * (1 + pan))
         seg = min(len(s), n - at)
-        left[at:at + seg] += s[:seg] * gl / max(g, 1e-9) * 1.0
-        right[at:at + seg] += s[:seg] * gr / max(g, 1e-9) * 1.0
+        left[at:at + seg] += s[:seg] * gl
+        right[at:at + seg] += s[:seg] * gr
 
     if args.vo:
         duck = plan.get("duck", {"amount": 0.62, "attack": 0.1, "release": 0.45})
@@ -230,16 +234,22 @@ def main() -> None:
     cur = max(np.abs(left).max(), np.abs(right).max(), 1e-9)
     left *= peak / cur
     right *= peak / cur
+    drive = float(plan.get("drive", 1.25))
+    left = np.tanh(left * drive) / np.tanh(drive) * peak
+    right = np.tanh(right * drive) / np.tanh(drive) * peak
+    cur = max(np.abs(left).max(), np.abs(right).max(), 1e-9)
+    left *= peak / cur
+    right *= peak / cur
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     stereo = np.stack([left, right], axis=1)
     pcm = (np.clip(stereo, -1, 1) * 32767).astype(np.int16).tobytes()
-    proc = subprocess.run(
+    subprocess.run(
         [ffmpeg_exe(), "-y", "-f", "s16le", "-ar", str(SR), "-ac", "2", "-i", "-",
          "-c:a", "pcm_s16le", str(out)],
         input=pcm, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-    print(f"[sound_design] {out} ({dur:.2f}s, peak {peak}, events "
+    print(f"[sound_design] {out} ({dur:.2f}s, peak {peak}, drive {drive}, events "
           f"{len(plan.get('events', []))}, chords {len(plan.get('chords', []))})")
 
 

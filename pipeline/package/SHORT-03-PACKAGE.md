@@ -1,9 +1,9 @@
-# SHORT-03 — Upload Kit (v2 ENHANCED)
+# SHORT-03 — Upload Kit (v4 QUALITY-OVERDRIVE)
 
-**Video:** `output/SHORT-03_FINAL.mp4` (27.4s · 1080×1920 · 30fps · h264+aac)
-**Version:** v3 FINAL — user feedback applied: punchy hook commentary, **voice-01**
-(picked by user in audition, slow-gravitas narrator), cinematic sound design
-(impact/riser/heartbeat/dark bed with VO-ducking), punch-in + slow-mo freeze drama.
+**Video:** `output/SHORT-03_FINAL.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
+**Version:** v4 — clip quality enhanced (denoise → 2x lanczos upscale → unsharp →
+contrast/sat grade → CAS), parallax drift editing, premium soft SFX (ticks, subdrop,
+heartbeats — non-harsh), voice-01 narrator. CTA is short-only (no long-video mention).
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 
 ---
@@ -19,28 +19,29 @@ he's done it a hundred times. And then he pauses, right at the camera. No food
 inside. Doesn't matter.
 
 Colorado Parks and Wildlife says this bear has LEARNED what cars mean — and he
-keeps coming back. One day, officers warn, he'll open the wrong door.
+keeps coming back.
 
-▶ FULL STORY: <long "Caught on Camera — Explained" episode link when live>
+Subscribe to Monarch Cam for more caught-on-camera wildlife moments.
 
 Footage: Colorado Parks and Wildlife — CPW SE Region (@CPW_SE on X).
 Original post: https://x.com/CPW_SE/status/1665762810909847552
 
 ## Pinned comment
 "The pause at the camera gets me every time. This is what food conditioning looks
-like — not hunger, a habit. Source: Colorado Parks & Wildlife. Full breakdown on
-Monarch Cam."
+like — not hunger, a habit. Source: Colorado Parks & Wildlife."
+
+## End card
+**"SUBSCRIBE - MONARCH CAM"** (1.8s) — short-only CTA, no long-video link.
 
 ## Tags
 bear, black bear, caught on camera, wildlife, colorado, bear opens car door,
 food conditioning, CPW, bear country, surveillance, monarch cam
 
-## Sound design (v2)
-- Original surveillance ambience kept (ducked)
-- Cinematic dark bed (Am→F→Am+9), synthesized in `tools/sound_design.py`
-- SFX beats: opening impact, riser→whoosh→freeze accent, heartbeats under "the
-  pause", warning swell, final CTA hit. Auto-ducked under VO (−6.5 dB on VO peaks)
-- VO: voice-00, 51 words / 17.3s, humanize 100/100
+## Sound design (v4)
+- Premium soft SFX: sub-bass impacts (no click), smooth whooshes, subdrop on the
+  freeze, heartbeats, caption-cue ticks (L/R panned, gentle)
+- Dark cinematic bed (Am→F→Am+9) + tanh glue; VO auto-duck (−6.5 dB)
+- Verified non-harsh: spectral centroid ≈ 2.1 kHz, <7% energy above 8 kHz
 
 ## Rights ledger
 | id | clip | credit | status |
@@ -48,5 +49,5 @@ food conditioning, CPW, bear country, surveillance, monarch cam
 | CLIP-2026-006 | woodland_raw_720p.mp4 | Colorado Parks and Wildlife (CPW SE Region) | **pending** — agency post, credited; confirm repost terms before monetized use |
 
 ## ⚠️ Publish note
-Same rights rule as before: clear before monetized publish. Render used
-`--skip-rights-check` with full disclosure.
+Clear rights before monetized publish. Render used `--skip-rights-check` with
+full disclosure.

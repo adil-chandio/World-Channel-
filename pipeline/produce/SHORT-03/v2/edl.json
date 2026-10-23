@@ -1,5 +1,5 @@
 {
-  "id": "SHORT-03_HANDLE_ANYWAY_V3",
+  "id": "SHORT-03_HANDLE_ANYWAY_V4",
   "segments": [
     {"src": "pipeline/produce/SHORT-03/v2/clips/s1a_action.mp4", "in": 0.0, "out": 7.3, "clip_gain": 1.0},
     {"src": "pipeline/produce/SHORT-03/v2/clips/s1b_freeze.mp4", "in": 0.0, "out": 2.5, "clip_gain": 1.0},
@@ -17,7 +17,7 @@
     {"text": "THE ULTIMATE PRICE.", "start": 20.2, "dur": 2.6},
     {"text": "HE'LL KEEP COMING BACK.", "start": 23.2, "dur": 2.2}
   ],
-  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.8},
+  "end_cta": {"text": "SUBSCRIBE - MONARCH CAM", "dur": 1.8},
   "vo": "pipeline/produce/SHORT-03/v2/vo.mp3",
   "vo_gain": 1.05,
   "music": "pipeline/produce/SHORT-03/v2/bed.wav",
