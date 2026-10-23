@@ -1,0 +1,24 @@
+{
+  "id": "SHORT-03_HANDLE_ANYWAY_V2",
+  "segments": [
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s1a_action.mp4", "in": 0.0, "out": 4.0, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/v2/clips/s1b_freeze.mp4", "in": 0.0, "out": 1.5, "clip_gain": 1.0},
+    {"src": "pipeline/produce/SHORT-03/clips/s2_approach.mp4", "in": 0.0, "out": 6.0, "clip_gain": 0.85},
+    {"src": "pipeline/produce/SHORT-03/clips/s3_handle.mp4", "in": 0.0, "out": 5.0, "clip_gain": 0.85},
+    {"src": "pipeline/produce/SHORT-03/clips/s4_inside.mp4", "in": 0.0, "out": 3.0, "clip_gain": 0.85}
+  ],
+  "captions": [
+    {"text": "3 AM. NOBODY AWAKE.", "start": 0.25, "dur": 1.7},
+    {"text": "WATCH THE HANDLES.", "start": 2.05, "dur": 1.7},
+    {"text": "THE PAUSE.", "start": 4.3, "dur": 1.3},
+    {"text": "A HABIT, NOT AN ACCIDENT.", "start": 7.0, "dur": 2.2},
+    {"text": "THE CAR WAS EMPTY.", "start": 9.2, "dur": 1.8},
+    {"text": "THE ULTIMATE PRICE.", "start": 13.2, "dur": 2.4},
+    {"text": "HE'LL KEEP COMING BACK.", "start": 16.8, "dur": 2.3}
+  ],
+  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.8},
+  "vo": "pipeline/produce/SHORT-03/v2/vo.mp3",
+  "vo_gain": 1.05,
+  "music": "pipeline/produce/SHORT-03/v2/bed.wav",
+  "music_gain": 1.0
+}

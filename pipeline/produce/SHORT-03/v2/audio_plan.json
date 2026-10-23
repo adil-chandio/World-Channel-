@@ -1,0 +1,31 @@
+{
+  "duration": 21.3,
+  "chords": [
+    {"at": 0.0, "dur": 8.5, "notes": [55, 110, 164.81, 220], "gain": 0.55},
+    {"at": 8.0, "dur": 7.0, "notes": [43.65, 87.31, 130.81, 220], "gain": 0.5},
+    {"at": 14.5, "dur": 6.8, "notes": [55, 110, 164.81, 246.94], "gain": 0.55}
+  ],
+  "events": [
+    {"type": "impact", "at": 0.10, "gain": 0.85, "freq": 50, "dur": 1.8},
+    {"type": "pulse", "at": 1.35, "gain": 0.32},
+    {"type": "pulse", "at": 2.55, "gain": 0.28},
+    {"type": "riser", "at": 3.0, "dur": 1.0, "gain": 0.40},
+    {"type": "whoosh", "at": 4.0, "dur": 0.55, "gain": 0.42},
+    {"type": "impact", "at": 4.05, "gain": 0.55, "freq": 64, "dur": 1.1},
+    {"type": "heartbeat", "at": 4.35, "gain": 0.75},
+    {"type": "heartbeat", "at": 5.15, "gain": 0.60},
+    {"type": "pulse", "at": 7.0, "gain": 0.30},
+    {"type": "pluck", "at": 8.3, "gain": 0.22, "freq": 440},
+    {"type": "pulse", "at": 10.2, "gain": 0.30},
+    {"type": "pluck", "at": 12.4, "gain": 0.20, "freq": 392},
+    {"type": "pulse", "at": 14.3, "gain": 0.32},
+    {"type": "riser", "at": 15.2, "dur": 1.25, "gain": 0.34},
+    {"type": "whoosh", "at": 16.5, "dur": 0.6, "gain": 0.38},
+    {"type": "impact", "at": 16.55, "gain": 0.50, "freq": 55, "dur": 1.4},
+    {"type": "heartbeat", "at": 17.4, "gain": 0.55},
+    {"type": "impact", "at": 19.45, "gain": 0.80, "freq": 46, "dur": 2.2},
+    {"type": "pluck", "at": 19.6, "gain": 0.18, "freq": 329.63}
+  ],
+  "duck": {"amount": 0.66, "attack": 0.12, "release": 0.5},
+  "peak": 0.62
+}

@@ -1,44 +1,51 @@
-# SHORT-03 — Upload Kit
+# SHORT-03 — Upload Kit (v2 ENHANCED)
 
-**Video:** `output/SHORT-03_FINAL.mp4` (22.5s · 1080×1920 · 30fps · h264+aac)
+**Video:** `output/SHORT-03_FINAL.mp4` (21.3s · 1080×1920 · 30fps · h264+aac)
+**Version:** v2 — user feedback applied: punchy hook commentary, cinematic sound
+design (impact/riser/heartbeat/dark bed with VO-ducking), punch-in edit + freeze drama.
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
-**Script:** `pipeline/scripts/SHORT-03.md` · **EDL:** `pipeline/produce/SHORT-03/edl.json`
 
 ---
 
-## Title (no Part-numbers, proof-first)
+## Title
 **At 3 AM, He Opens The Door Anyway (Caught on Camera)**
 
 ## Description
-No food inside. He opens the door anyway.
+Three in the morning. Everyone's asleep. Except him.
 
-At 3 in the morning in Woodland Park, Colorado, a black bear walks up to a parked
-truck and opens the door by the handle — then pauses, right on camera. Colorado
-Parks and Wildlife says this bear has LEARNED how doors work, and repeats it even
-when there is no food inside.
+He doesn't break the window. He doesn't force the lock. He opens the door — like
+he's done it a hundred times. And then he pauses, right at the camera. No food
+inside. Doesn't matter.
 
-Once a bear connects cars with food, they never forget. Wildlife officers warn:
-one day he will meet an occupied car — and pay the ultimate price.
+Colorado Parks and Wildlife says this bear has LEARNED what cars mean — and he
+keeps coming back. One day, officers warn, he'll open the wrong door.
 
-▶ FULL STORY: <link to the long "Caught on Camera — Explained" episode when live>
+▶ FULL STORY: <long "Caught on Camera — Explained" episode link when live>
 
-Footage: Colorado Parks and Wildlife — CPW SE Region (@CPW_SE on X). Used with
-credit for commentary/education. Original post: https://x.com/CPW_SE/status/1665762810909847552
+Footage: Colorado Parks and Wildlife — CPW SE Region (@CPW_SE on X).
+Original post: https://x.com/CPW_SE/status/1665762810909847552
 
 ## Pinned comment
-"He opens the door even when there's no food inside — that's what food conditioning
-does. Source: Colorado Parks & Wildlife. Full breakdown on Monarch Cam."
+"The pause at the camera gets me every time. This is what food conditioning looks
+like — not hunger, a habit. Source: Colorado Parks & Wildlife. Full breakdown on
+Monarch Cam."
 
 ## Tags
 bear, black bear, caught on camera, wildlife, colorado, bear opens car door,
-food conditioning, CPW, bear country, ring camera, surveillance, monarch cam
+food conditioning, CPW, bear country, surveillance, monarch cam
+
+## Sound design (v2)
+- Original surveillance ambience kept (ducked)
+- Cinematic dark bed (Am→F→Am+9), synthesized in `tools/sound_design.py`
+- SFX beats: opening impact, riser→whoosh→freeze accent, heartbeats under "the
+  pause", warning swell, final CTA hit. Auto-ducked under VO (−6.5 dB on VO peaks)
+- VO: voice-00, 51 words / 17.3s, humanize 100/100
 
 ## Rights ledger
-| id | clip | credit | status | note |
-|---|---|---|---|---|
-| CLIP-2026-006 | woodland_raw_720p.mp4 | Colorado Parks and Wildlife (CPW SE Region) | **pending** | Public agency safety post, credited; confirm repost terms before monetized use |
+| id | clip | credit | status |
+|---|---|---|---|
+| CLIP-2026-006 | woodland_raw_720p.mp4 | Colorado Parks and Wildlife (CPW SE Region) | **pending** — agency post, credited; confirm repost terms before monetized use |
 
 ## ⚠️ Publish note
-Rights status is **pending** — agency-credited commentary use is the plan, but clear
-licensing before monetized publication (same rule as SHORT-01/02). Render used
+Same rights rule as before: clear before monetized publish. Render used
 `--skip-rights-check` with full disclosure.
