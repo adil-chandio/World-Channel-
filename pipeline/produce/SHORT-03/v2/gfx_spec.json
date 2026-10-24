@@ -8,42 +8,32 @@
      "fade_in": 0.6, "fade_out": 0.3},
 
     {"kind": "timestamp", "text": "3:02 AM", "sub": "WOODLAND PARK, CO",
-     "at": 0.25, "dur": 25.6, "x": 55, "y": 62, "fade_in": 0.35, "fade_out": 0.4},
+     "at": 0.3, "dur": 25.6, "x": 55, "y": 55, "fade_in": 0.35, "fade_out": 0.4},
 
-    {"kind": "rec", "at": 0.3, "dur": 25.6, "x": 845, "y": 72,
-     "fade_in": 0.25, "fade_out": 0.35},
+    {"kind": "rec", "at": 0.35, "dur": 25.55, "x": 880, "y": 55,
+     "fade_in": 0.3, "fade_out": 0.35},
 
-    {"kind": "corners", "at": 0.35, "dur": 25.6, "x": 0, "y": 0,
+    {"kind": "corners", "at": 0.4, "dur": 25.5, "x": 0, "y": 0,
      "fade_in": 0.5, "fade_out": 0.35},
 
-    {"kind": "ring_red", "size": 270, "width": 10,
-     "at": 3.15, "dur": 2.3, "x": 325, "y": 755, "fade_in": 0.25, "fade_out": 0.35},
+    {"kind": "bar", "color": [22, 22, 28, 115],
+     "at": 0.3, "dur": 25.25, "x": 0, "y": 1868, "fade_in": 0.3, "fade_out": 0.3},
 
-    {"kind": "glow", "size": 620,
-     "at": 7.3, "dur": 1.85, "x": 150, "y": 520, "fade_in": 0.2, "fade_out": 0.6},
-
-    {"kind": "ring_white", "size": 310, "width": 9,
-     "at": 7.5, "dur": 1.7, "x": 280, "y": 715, "fade_in": 0.2, "fade_out": 0.4},
+    {"kind": "progress", "color": [255, 255, 255, 185], "chunks": 30,
+     "at": 0.3, "dur": 25.25, "x": 0, "y": 1870, "fade_in": 0.3, "fade_out": 0.3},
 
     {"kind": "credit_bar", "text": "FOOTAGE: COLORADO PARKS & WILDLIFE",
-     "at": 10.3, "dur": 3.3, "x": 60, "y": 1520, "x_from": -980,
-     "fade_in": 0.2, "fade_out": 0.35},
-
-    {"kind": "arrow",
-     "at": 13.7, "dur": 2.1, "x": 205, "y": 800, "x_from": -320,
-     "fade_in": 0.25, "fade_out": 0.3},
-
-    {"kind": "triangle",
-     "at": 20.25, "dur": 2.5, "x": 58, "y": 548, "fade_in": 0.2, "fade_out": 0.3}
+     "at": 11.0, "dur": 3.4, "x": 55, "y": 1770, "x_from": -720,
+     "fade_in": 0.25, "fade_out": 0.4}
   ],
   "shakes": [
-    {"at": 0.12, "dur": 0.45, "amp": 5},
-    {"at": 7.35, "dur": 0.6, "amp": 7},
-    {"at": 25.55, "dur": 0.5, "amp": 6}
+    {"at": 0.12, "dur": 0.35, "amp": 3.5},
+    {"at": 7.35, "dur": 0.45, "amp": 4},
+    {"at": 25.55, "dur": 0.4, "amp": 3.5}
   ],
   "flashes": [
-    {"at": 0.10, "dur": 0.2, "alpha": 78},
-    {"at": 7.32, "dur": 0.2, "alpha": 58},
-    {"at": 25.52, "dur": 0.2, "alpha": 68}
+    {"at": 0.10, "dur": 0.12, "alpha": 38},
+    {"at": 7.32, "dur": 0.12, "alpha": 30},
+    {"at": 25.52, "dur": 0.12, "alpha": 36}
   ]
 }

@@ -59,27 +59,27 @@ def _canvas(w: int, h: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
 
 
 def png_timestamp(path: Path, text: str, sub: str) -> None:
-    im, d = _canvas(470, 128)
-    d.rounded_rectangle([0, 0, 469, 127], radius=18, fill=(8, 8, 12, 165))
-    d.rounded_rectangle([0, 0, 12, 127], radius=6, fill=(220, 60, 50, 245))
-    d.text((30, 18), text, font=_font(MONO_B, 54), fill=(255, 255, 255, 255))
-    d.text((32, 84), sub, font=_font(SANS_B, 27), fill=(225, 225, 230, 230))
+    im, d = _canvas(336, 94)
+    d.rounded_rectangle([0, 0, 335, 93], radius=14, fill=(8, 8, 12, 118))
+    d.rounded_rectangle([0, 0, 8, 93], radius=4, fill=(220, 60, 50, 205))
+    d.text((22, 12), text, font=_font(MONO_B, 40), fill=(245, 245, 248, 235))
+    d.text((24, 60), sub, font=_font(SANS_B, 20), fill=(215, 215, 222, 185))
     im.save(path)
 
 
 def png_rec(path: Path) -> None:
-    im, d = _canvas(210, 84)
-    d.ellipse([10, 18, 64, 72], fill=(235, 40, 35, 255))
-    glow = im.filter(ImageFilter.GaussianBlur(8))
+    im, d = _canvas(150, 58)
+    d.ellipse([8, 14, 42, 48], fill=(235, 45, 38, 235))
+    glow = im.filter(ImageFilter.GaussianBlur(6))
     im = Image.alpha_composite(glow, im)
     d = ImageDraw.Draw(im)
-    d.text((82, 18), "REC", font=_font(MONO_B, 46), fill=(255, 255, 255, 245))
+    d.text((56, 13), "REC", font=_font(MONO_B, 32), fill=(245, 245, 248, 225))
     im.save(path)
 
 
 def png_corners(path: Path) -> None:
     im, d = _canvas(W, H)
-    arm, th, ins, col = 130, 6, 58, (255, 255, 255, 190)
+    arm, th, ins, col = 92, 3, 70, (255, 255, 255, 118)
     for cx, cy, dx, dy in ((ins, ins, 1, 1), (W - ins, ins, -1, 1),
                            (ins, H - ins, 1, -1), (W - ins, H - ins, -1, -1)):
         x0, x1 = sorted((cx, cx + dx * arm))
@@ -126,10 +126,14 @@ def png_triangle(path: Path) -> None:
 
 
 def png_credit_bar(path: Path, text: str) -> None:
-    im, d = _canvas(920, 112)
-    d.rounded_rectangle([0, 0, 919, 111], radius=16, fill=(8, 8, 12, 150))
-    d.rounded_rectangle([0, 0, 12, 111], radius=6, fill=(210, 60, 50, 230))
-    d.text((34, 34), text, font=_font(SANS_B, 36), fill=(255, 255, 255, 235))
+    im, d = _canvas(660, 62)
+    d.rounded_rectangle([0, 0, 659, 61], radius=12, fill=(8, 8, 12, 105))
+    d.text((22, 16), text, font=_font(SANS_B, 26), fill=(235, 235, 240, 215))
+    im.save(path)
+
+
+def png_bar(path: Path, color: tuple[int, int, int, int], w: int = 1080) -> None:
+    im = Image.new("RGBA", (w, 8), color)
     im.save(path)
 
 
@@ -159,6 +163,8 @@ BUILDERS = {
     "arrow": lambda p, e: png_arrow(p),
     "triangle": lambda p, e: png_triangle(p),
     "credit_bar": lambda p, e: png_credit_bar(p, e.get("text", "")),
+    "bar": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 170])), int(e.get("w_px", 1080))),
+    "progress": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 185])), int(e.get("w_px", 1080))),
     "vignette": lambda p, e: png_vignette(p),
 }
 
@@ -218,13 +224,15 @@ def apply(spec: dict) -> None:
         else:
             yexpr = str(y)
         en = ""
-        if el.get("blink"):
+        if el.get("enable_raw"):
+            en = f":enable='{el['enable_raw']}'"
+        elif el.get("blink"):
             en = f":enable='between(t,{at},{at + d})*lt(mod(t-{at},1.15),0.78)'"
         ov = f"[{prev}][{lbl}]overlay=x='{xexpr}':y='{yexpr}'{en}:eof_action=pass[v{i}]"
         parts.append(ov)
         prev = f"v{i}"
 
-    shake_x, shake_y = "0", "0"
+    shake_x, shake_y = "", ""
     for s in spec.get("shakes", []):
         at, d, amp = float(s["at"]), float(s["dur"]), float(s.get("amp", 6))
         shake_x += f"+if(between(t,{at},{at + d}),{amp}*sin(88*(t-{at})),0)"
@@ -247,6 +255,26 @@ def main() -> None:
     ap.add_argument("spec")
     args = ap.parse_args()
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+    expanded: list[dict] = []
+    for el in spec.get("elements", []):
+        if el.get("kind") == "progress":
+            n = int(el.pop("chunks", 30))
+            at, dur = float(el["at"]), float(el["dur"])
+            y = int(el.get("y", 0))
+            col = el.get("color", [255, 255, 255, 185])
+            for k in range(n):
+                t0 = at + dur * k / n
+                t1 = at + dur * (k + 1) / n
+                expanded.append({
+                    "kind": "bar", "color": col,
+                    "w_px": max(2, int(1080 * (k + 1) / n)),
+                    "at": t0, "dur": t1 - t0, "x": 0, "y": y,
+                    "fade_in": 0, "fade_out": 0,
+                    "enable_raw": f"between(t,{t0:.3f},{t1 + 0.25:.3f})",
+                })
+        else:
+            expanded.append(el)
+    spec["elements"] = expanded
     for fl in spec.get("flashes", []):
         spec.setdefault("elements", []).append({
             "kind": "flash", "alpha": fl.get("alpha", 70),

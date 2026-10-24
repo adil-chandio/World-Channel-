@@ -1,11 +1,12 @@
-# SHORT-03 — Upload Kit (v5 GFX FINALE)
+# SHORT-03 — Upload Kit (v6 CLEAN PREMIUM)
 
 **Video:** `output/SHORT-03_FINAL_GFX.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
-**Version:** v5 — motion-graphics layer added via `tools/keyframe_elements.py`:
-keyframed PNG elements (3:02 AM timestamp, blinking-style REC, viewfinder corners,
-red circle on the handle, white glow+ring on "THE PAUSE", CPW credit lower-third fly-in,
-arrow, warning triangle), impact flashes + camera shakes, soft vignette. Base v4
-quality stack retained (1440p enhanced master, voice-01, premium soft SFX, short-only CTA).
+**Version:** v6 — CLEAN premium motion-graphics: ALL elements at frame EDGES only,
+main picture/subject 100% undisturbed (pixel-verified). Chrome: subtle 3:02 AM timestamp
+badge, small REC dot, thin viewfinder corners, animated bottom progress line, quiet CPW
+credit strip (fly-in), soft vignette + micro impact flashes/shakes (3.5px max). Zero
+cheap/cringe elements. Base v4 quality stack retained (1440p enhanced master, voice-01,
+premium soft SFX, short-only CTA).
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 
 ---
