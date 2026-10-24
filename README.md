@@ -2,6 +2,9 @@
 
 Operating repository for **Monarch Cam** (YouTube: [@monarch-cam](https://youtube.com/@monarch-cam)).
 
+**→ NEW SESSION / HANDOVER? Start at [`HANDOVER.md`](HANDOVER.md)** → full archive:
+[`docs/SESSION-ARCHIVE-FULL.md`](docs/SESSION-ARCHIVE-FULL.md) (every prompt, result, recipe, ID).
+
 **→ The production system lives in [`PIPELINE.md`](PIPELINE.md)** — caught-on-camera storytelling +
 explainer videos: agent plans, finds, forensically studies, scripts, narrates, edits, packages;
 owner supplies clips via Google Drive and clicks publish.
