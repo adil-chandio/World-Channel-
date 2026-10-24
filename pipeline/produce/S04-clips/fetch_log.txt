@@ -1,0 +1,26 @@
+=== fetch-clip Sat Oct 24 18:55:54 UTC 2026 ===
+pip exit: 0
+yt-dlp version: 2026.10.21
+
+=== Trying https://www.bbc.com/news/videos/cewqzryz12zo
+
+Usage: __main__.py [OPTIONS] URL [URL...]
+
+__main__.py: error: no such option: -A
+yt-dlp exit: 2
+
+=== Trying https://www.independent.co.uk/tv/lifestyle/bear-colorado-truck-front-seat-video-b3006131.html
+
+Usage: __main__.py [OPTIONS] URL [URL...]
+
+__main__.py: error: no such option: -A
+yt-dlp exit: 2
+
+=== Trying https://www.cbsnews.com/colorado/video/bear-surprises-colorado-contractor-after-sneaking-into-open-window/
+
+Usage: __main__.py [OPTIONS] URL [URL...]
+
+__main__.py: error: no such option: -A
+yt-dlp exit: 2
+
+final status: FAILED
