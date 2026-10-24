@@ -1,26 +1,40 @@
-=== fetch-clip Sat Oct 24 18:55:54 UTC 2026 ===
+=== fetch-clip Sat Oct 24 18:56:32 UTC 2026 ===
 pip exit: 0
 yt-dlp version: 2026.10.21
 
 === Trying https://www.bbc.com/news/videos/cewqzryz12zo
+[bbc] Extracting URL: https://www.bbc.com/news/videos/cewqzryz12zo
+[bbc] cewqzryz12zo: Downloading webpage
+[bbc] p0nw54v6: Downloading media selection JSON
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading media selection JSON
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading m3u8 information
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[bbc] p0nw54v6: Downloading MPD manifest
+[download] Downloading playlist: Watch: Man comes face-to-face with bear inside truck
+[bbc] Playlist Watch: Man comes face-to-face with bear inside truck: Downloading 1 items of 1
+[download] Downloading item 1 of 1
+[info] p0nw54v6: Downloading 1 format(s): mf_cloudfront-5476-1
+[hlsnative] Downloading m3u8 manifest
+[hlsnative] Total fragments: 9
+[download] Destination: /tmp/clip.mp4
+[download]   0.0% of ~  43.87MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.0% of ~  43.88MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.0% of ~  43.89MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.0% of ~  43.93MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.1% of ~  44.00MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.1% of ~  44.14MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.3% of ~  44.42MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   0.6% of ~  44.98MiB at    1.70KiB/s ETA Unknown (frag 0/9)[download]   1.1% of ~  46.11MiB at  670.38KiB/s ETA Unknown (frag 0/9)[download]   2.1% of ~  48.36MiB at  670.38KiB/s ETA Unknown (frag 0/9)[download]   3.8% of ~  52.86MiB at  670.38KiB/s ETA Unknown (frag 0/9)[download]   6.5% of ~  61.86MiB at    4.51MiB/s ETA Unknown (frag 0/9)[download]   6.1% of ~  79.86MiB at    4.51MiB/s ETA Unknown (frag 0/9)[download]   5.6% of ~  87.74MiB at    4.51MiB/s ETA Unknown (frag 1/9)[download]  11.2% of ~  43.36MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.2% of ~  43.37MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.3% of ~  43.38MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.3% of ~  43.40MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.3% of ~  43.43MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.3% of ~  43.50MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.5% of ~  43.64MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  11.7% of ~  43.92MiB at    4.78MiB/s ETA Unknown (frag 1/9)[download]  12.1% of ~  44.48MiB at    4.96MiB/s ETA Unknown (frag 1/9)[download]  12.9% of ~  45.61MiB at    5.10MiB/s ETA 00:07 (frag 1/9)  [download]  14.4% of ~  47.86MiB at    5.34MiB/s ETA 00:07 (frag 1/9)[download]  16.9% of ~  52.36MiB at    5.87MiB/s ETA 00:07 (frag 1/9)[download]  15.7% of ~  61.36MiB at    5.87MiB/s ETA 00:07 (frag 1/9)[download]  14.9% of ~  64.79MiB at    5.87MiB/s ETA 00:07 (frag 2/9)[download]  22.3% of ~  43.15MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.3% of ~  43.16MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.3% of ~  43.16MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.4% of ~  43.17MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.4% of ~  43.20MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.4% of ~  43.24MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.5% of ~  43.34MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  22.7% of ~  43.53MiB at    5.97MiB/s ETA 00:07 (frag 2/9)[download]  23.1% of ~  43.90MiB at    6.07MiB/s ETA 00:06 (frag 2/9)[download]  23.8% of ~  44.65MiB at    6.07MiB/s ETA 00:06 (frag 2/9)[download]  25.2% of ~  46.15MiB at    6.34MiB/s ETA 00:06 (frag 2/9)[download]  27.7% of ~  49.15MiB at    6.76MiB/s ETA 00:06 (frag 2/9)[download]  26.1% of ~  55.15MiB at    6.76MiB/s ETA 00:06 (frag 2/9)[download]  25.1% of ~  57.40MiB at    6.76MiB/s ETA 00:06 (frag 3/9)[download]  33.4% of ~  43.07MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.4% of ~  43.08MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.4% of ~  43.08MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.4% of ~  43.09MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.4% of ~  43.11MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.5% of ~  43.14MiB at    6.56MiB/s ETA 00:06 (frag 3/9)[download]  33.6% of ~  43.21MiB at    6.39MiB/s ETA 00:06 (frag 3/9)[download]  33.8% of ~  43.35MiB at    6.24MiB/s ETA 00:06 (frag 3/9)[download]  34.1% of ~  43.63MiB at    6.11MiB/s ETA 00:05 (frag 3/9)[download]  34.8% of ~  44.20MiB at    6.02MiB/s ETA 00:05 (frag 3/9)[download]  36.1% of ~  45.32MiB at    6.01MiB/s ETA 00:05 (frag 3/9)[download]  38.6% of ~  47.57MiB at    6.15MiB/s ETA 00:05 (frag 3/9)[download]  36.8% of ~  52.07MiB at    6.15MiB/s ETA 00:05 (frag 3/9)[download]  35.6% of ~  53.78MiB at    6.15MiB/s ETA 00:05 (frag 4/9)[download]  44.3% of ~  43.24MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.3% of ~  43.24MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.3% of ~  43.25MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.3% of ~  43.26MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.3% of ~  43.27MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.4% of ~  43.30MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.4% of ~  43.35MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  44.6% of ~  43.47MiB at    5.98MiB/s ETA 00:05 (frag 4/9)[download]  45.0% of ~  43.69MiB at    5.88MiB/s ETA 00:05 (frag 4/9)[download]  45.6% of ~  44.14MiB at    5.88MiB/s ETA 00:05 (frag 4/9)[download]  46.9% of ~  45.04MiB at    5.94MiB/s ETA 00:05 (frag 4/9)[download]  49.4% of ~  46.84MiB at    6.14MiB/s ETA 00:05 (frag 4/9)[download]  47.6% of ~  50.44MiB at    6.14MiB/s ETA 00:05 (frag 4/9)[download]  46.2% of ~  52.03MiB at    6.14MiB/s ETA 00:05 (frag 5/9)[download]  55.5% of ~  43.33MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.5% of ~  43.33MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.5% of ~  43.33MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.5% of ~  43.34MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.5% of ~  43.35MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.5% of ~  43.37MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.6% of ~  43.42MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  55.8% of ~  43.51MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  56.1% of ~  43.70MiB at    5.83MiB/s ETA 00:04 (frag 5/9)[download]  56.8% of ~  44.07MiB at    5.77MiB/s ETA 00:04 (frag 5/9)[download]  58.1% of ~  44.82MiB at    5.81MiB/s ETA 00:04 (frag 5/9)[download]  60.5% of ~  46.32MiB at    5.97MiB/s ETA 00:04 (frag 5/9)[download]  58.6% of ~  49.32MiB at    5.97MiB/s ETA 00:04 (frag 5/9)[download]  57.1% of ~  50.62MiB at    5.97MiB/s ETA 00:04 (frag 6/9)[download]  66.9% of ~  43.19MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  66.9% of ~  43.19MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  66.9% of ~  43.19MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  66.9% of ~  43.19MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  66.9% of ~  43.20MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  67.0% of ~  43.22MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  67.0% of ~  43.26MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  67.2% of ~  43.34MiB at    5.73MiB/s ETA 00:04 (frag 6/9)[download]  67.5% of ~  43.51MiB at    5.58MiB/s ETA 00:04 (frag 6/9)[download]  68.2% of ~  43.83MiB at    5.58MiB/s ETA 00:04 (frag 6/9)[download]  69.4% of ~  44.47MiB at    5.60MiB/s ETA 00:03 (frag 6/9)[download]  71.9% of ~  45.76MiB at    5.77MiB/s ETA 00:03 (frag 6/9)[download]  69.5% of ~  48.33MiB at    5.77MiB/s ETA 00:03 (frag 6/9)[download]  68.2% of ~  49.23MiB at    5.77MiB/s ETA 00:03 (frag 7/9)[download]  77.2% of ~  43.49MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.2% of ~  43.49MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.2% of ~  43.49MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.3% of ~  43.49MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.3% of ~  43.50MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.3% of ~  43.52MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.4% of ~  43.56MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.6% of ~  43.63MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  77.9% of ~  43.77MiB at    5.90MiB/s ETA 00:03 (frag 7/9)[download]  78.5% of ~  44.05MiB at    6.05MiB/s ETA 00:03 (frag 7/9)[download]  79.8% of ~  44.61MiB at    6.05MiB/s ETA 00:03 (frag 7/9)[download]  82.2% of ~  45.74MiB at    6.05MiB/s ETA 00:03 (frag 7/9)[download]  80.6% of ~  47.99MiB at    6.49MiB/s ETA 00:03 (frag 7/9)[download]  78.6% of ~  49.19MiB at    6.49MiB/s ETA 00:03 (frag 8/9)[download]  95.2% of ~  40.59MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.2% of ~  40.59MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.2% of ~  40.59MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.2% of ~  40.60MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.3% of ~  40.61MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.3% of ~  40.62MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.4% of ~  40.65MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.6% of ~  40.72MiB at    6.96MiB/s ETA 00:02 (frag 8/9)[download]  95.9% of ~  40.84MiB at    7.28MiB/s ETA 00:02 (frag 8/9)[download]  96.5% of ~  41.09MiB at    7.28MiB/s ETA 00:02 (frag 8/9)[download]  97.6% of ~  41.59MiB at    7.61MiB/s ETA 00:02 (frag 8/9)[download]  95.4% of ~  42.53MiB at    7.61MiB/s ETA 00:02 (frag 9/9)[download] 100% of   40.59MiB in 00:00:06 at 6.60MiB/s               
+[VideoRemuxer] Not remuxing media file "/tmp/clip.mp4"; already is in target format mp4
+[download] Finished downloading playlist: Watch: Man comes face-to-face with bear inside truck
+yt-dlp exit: 0
+got 42563576 bytes
+SUCCESS from https://www.bbc.com/news/videos/cewqzryz12zo
 
-Usage: __main__.py [OPTIONS] URL [URL...]
-
-__main__.py: error: no such option: -A
-yt-dlp exit: 2
-
-=== Trying https://www.independent.co.uk/tv/lifestyle/bear-colorado-truck-front-seat-video-b3006131.html
-
-Usage: __main__.py [OPTIONS] URL [URL...]
-
-__main__.py: error: no such option: -A
-yt-dlp exit: 2
-
-=== Trying https://www.cbsnews.com/colorado/video/bear-surprises-colorado-contractor-after-sneaking-into-open-window/
-
-Usage: __main__.py [OPTIONS] URL [URL...]
-
-__main__.py: error: no such option: -A
-yt-dlp exit: 2
-
-final status: FAILED
+final status: OK
