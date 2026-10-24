@@ -15,3 +15,4 @@ thumb_out: pipeline/produce/S04-clips/steamboat_thumb.jpg
 # Rights: PENDING — Storyful-managed; credit Justin Pickar / Meg Warder via Storyful.
 # trigger: self-logging fetch (run 3)
 # trigger: self-logging fetch (run 4)
+# trigger: run 5 (yt-dlp user-agent fix)

@@ -62,7 +62,7 @@ jobs:
                 echo "curl exit: $?" >> "$LOG"
                 ;;
               *)
-                python3 -m yt_dlp --no-playlist --no-warnings -f "b/bv*+ba/bv*/b*" --remux-video mp4 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -o /tmp/clip.mp4 "$U" >> "$LOG" 2>&1
+                python3 -m yt_dlp --no-playlist --no-warnings -f "b/bv*+ba/bv*/b*" --remux-video mp4 --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -o /tmp/clip.mp4 "$U" >> "$LOG" 2>&1
                 echo "yt-dlp exit: $?" >> "$LOG"
                 ;;
             esac
