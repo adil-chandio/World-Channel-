@@ -1,0 +1,23 @@
+{
+  "id": "SHORT-01",
+  "segments": [
+    {"src": "media/animations/previs_a.mp4", "in": 0, "out": 5.2, "clip_gain": 1.0},
+    {"src": "media/animations/previs_b.mp4", "in": 0, "out": 5.2, "clip_gain": 1.0},
+    {"src": "media/animations/previs_c.mp4", "in": 0, "out": 5.2, "clip_gain": 1.0}
+  ],
+  "captions": [
+    {"text": "THIS BEAR", "start": 0.2, "dur": 1.1},
+    {"text": "KNOWS THIS HOUSE", "start": 1.5, "dur": 1.7},
+    {"text": "He comes back", "start": 3.4, "dur": 1.6},
+    {"text": "EVERY. SINGLE. DAY.", "start": 5.2, "dur": 1.8},
+    {"text": "3 cameras knocked down", "start": 7.2, "dur": 2.0},
+    {"text": "They all still work.", "start": 9.4, "dur": 1.6},
+    {"text": "He is not lost.", "start": 11.2, "dur": 1.6},
+    {"text": "He LEARNED.", "start": 13.0, "dur": 1.4},
+    {"text": "A bear remembers.", "start": 14.6, "dur": 0.9}
+  ],
+  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.6},
+  "vo": "pipeline/produce/SHORT-01/vo.mp3",
+  "vo_gain": 1.0,
+  "music": null
+}
