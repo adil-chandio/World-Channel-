@@ -32,6 +32,8 @@ jobs:
           out = pathlib.Path(os.environ["GITHUB_OUTPUT"])
           with out.open("a") as f:
               f.write(f"url={val('url')}\n")
+              f.write(f"url_alt1={val('url_alt1')}\n")
+              f.write(f"url_alt2={val('url_alt2')}\n")
               f.write(f"out={val('out')}\n")
               f.write(f"thumb={val('thumb')}\n")
               f.write(f"thumb_out={val('thumb_out')}\n")
@@ -41,30 +43,38 @@ jobs:
       - name: Download clip
         run: |
           set -e
-          echo "Fetching: ${{ steps.req.outputs.url }}"
           URL="${{ steps.req.outputs.url }}"
-          # 1) direct file URL -> curl first
-          if echo "$URL" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
-            curl -fsSL --retry 3 --max-time 300 \
-              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-              "$URL" -o /tmp/clip.mp4 || echo "curl failed, will try yt-dlp"
-          fi
-          # 2) fallback: yt-dlp (BBC / CBS / YouTube / ex.co / generic pages)
-          if [ ! -s /tmp/clip.mp4 ]; then
-            pip install --quiet yt-dlp
+          ALT1="${{ steps.req.outputs.url_alt1 }}"
+          ALT2="${{ steps.req.outputs.url_alt2 }}"
+          pip install --quiet yt-dlp
+          try_fetch() {
+            U="$1"
+            [ -z "$U" ] && return 1
+            echo "=== Trying: $U"
+            rm -f /tmp/clip.mp4
+            if echo "$U" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
+              curl -fsSL --retry 3 --max-time 300 \
+                -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+                "$U" -o /tmp/clip.mp4 && return 0
+            fi
             yt-dlp --no-playlist --no-warnings \
-              -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" \
-              --merge-output-format mp4 \
+              -f "b/bv*+ba/bv*/b*" \
+              --remux-video mp4 \
               -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-              -o /tmp/clip.mp4 "$URL"
-          fi
+              -o /tmp/clip.mp4 "$U"
+          }
+          ok=""
+          for U in "$URL" "$ALT1" "$ALT2"; do
+            if try_fetch "$U" && [ -s /tmp/clip.mp4 ]; then ok="1"; break; fi
+          done
+          [ -n "$ok" ] || { echo "ALL SOURCES FAILED"; exit 1; }
           ls -la /tmp/clip.mp4
           python3 - <<'EOF'
-          import sys, pathlib
+          import pathlib
           p = pathlib.Path("/tmp/clip.mp4")
           size = p.stat().st_size
           assert size > 300_000, f"file too small: {size}"
-          head = p.open("rb").read(64)
+          head = p.open("rb").read(256)
           assert b"ftyp" in head, f"not an mp4: {head[:16]!r}"
           print(f"OK mp4, {size} bytes")
           EOF

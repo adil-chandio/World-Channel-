@@ -3,6 +3,8 @@
 # GitHub Actions runner (full internet) and commits it to the same branch.
 name: CLIP-2026-007-steamboat-bear-shotgun
 url: https://www.bbc.com/news/videos/cewqzryz12zo
+url_alt1: https://www.independent.co.uk/tv/lifestyle/bear-colorado-truck-front-seat-video-b3006131.html
+url_alt2: https://www.cbsnews.com/colorado/video/bear-surprises-colorado-contractor-after-sneaking-into-open-window/
 thumb: https://assets3.cbsnewsstatic.com/hub/i/r/2026/06/27/2c9cb15c-1417-4916-96b7-7a35851ecdd5/thumbnail/1280x720/942fb5ddce54beaf65d42df482cf23c5/f19e3b47dcb9a3792bff607c4c3f0796.jpg
 out: pipeline/produce/S04-clips/steamboat_raw.mp4
 thumb_out: pipeline/produce/S04-clips/steamboat_thumb.jpg
