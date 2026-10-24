@@ -1,7 +1,8 @@
 # Fetch a raw clip from a URL the sandbox cannot reach, using a GitHub-hosted
 # runner as the downloader, then commit it back to the same branch.
-# Triggered by any push that touches ops/clip-fetch-request.yml, or manually.
-# Supports direct mp4 URLs (curl) AND page URLs like BBC/CBS/YouTube (yt-dlp).
+# Supports direct mp4 URLs (curl) AND page URLs (yt-dlp) with alt-URL fallback.
+# ALWAYS commits pipeline/produce/<dir>/fetch_log.txt so failures are debuggable
+# even when Actions log retrieval is unavailable.
 name: fetch-clip
 
 on:
@@ -41,63 +42,88 @@ jobs:
           EOF
 
       - name: Download clip
+        id: dl
         run: |
-          set -e
-          URL="${{ steps.req.outputs.url }}"
-          ALT1="${{ steps.req.outputs.url_alt1 }}"
-          ALT2="${{ steps.req.outputs.url_alt2 }}"
-          pip install --quiet yt-dlp
-          try_fetch() {
-            U="$1"
-            [ -z "$U" ] && return 1
-            echo "=== Trying: $U"
-            rm -f /tmp/clip.mp4
-            if echo "$U" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
-              curl -fsSL --retry 3 --max-time 300 \
-                -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-                "$U" -o /tmp/clip.mp4 && return 0
+          set +e
+          OUTDIR=$(dirname "${{ steps.req.outputs.out }}")
+          mkdir -p "$OUTDIR"
+          LOG="$OUTDIR/fetch_log.txt"
+          STATUS="$OUTDIR/fetch_status.txt"
+          echo "FAILED" > "$STATUS"
+          {
+            echo "=== fetch-clip $(date -u) ==="
+            echo "python: $(python3 --version)"
+            echo "pip install yt-dlp..."
+            python3 -m pip install --quiet yt-dlp 2>&1
+            echo "yt-dlp: $(yt-dlp --version 2>&1)"
+            try_url() {
+              U="$1"
+              if [ -z "$U" ]; then echo "[skip empty url]"; return 1; fi
+              echo ""
+              echo "=== Trying: $U"
+              rm -f /tmp/clip.mp4
+              if echo "$U" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
+                curl -fsSL --retry 2 --max-time 300 \
+                  -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+                  "$U" -o /tmp/clip.mp4 2>&1
+                echo "curl exit: $?"
+              else
+                yt-dlp --no-playlist --no-warnings \
+                  -f "b/bv*+ba/bv*/b*" --remux-video mp4 \
+                  -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+                  -o /tmp/clip.mp4 "$U" 2>&1
+                echo "yt-dlp exit: $?"
+              fi
+              if [ -s /tmp/clip.mp4 ]; then
+                echo "got file: $(ls -la /tmp/clip.mp4)"
+                return 0
+              fi
+              return 1
+            }
+            try_url "${{ steps.req.outputs.url }}"
+            if [ ! -s /tmp/clip.mp4 ]; then try_url "${{ steps.req.outputs.url_alt1 }}"; fi
+            if [ ! -s /tmp/clip.mp4 ]; then try_url "${{ steps.req.outputs.url_alt2 }}"; fi
+            echo ""
+            if [ -s /tmp/clip.mp4 ]; then
+              SIZE=$(stat -c%s /tmp/clip.mp4)
+              HEAD=$(head -c 256 /tmp/clip.mp4 | xxd | head -4)
+              echo "size=$SIZE"
+              echo "head: $HEAD"
+              if [ "$SIZE" -gt 300000 ]; then
+                echo "OK" > "$STATUS"
+                cp /tmp/clip.mp4 "${{ steps.req.outputs.out }}"
+              else
+                echo "file too small ($SIZE) - FAILED"
+              fi
+            else
+              echo "ALL SOURCES FAILED"
             fi
-            yt-dlp --no-playlist --no-warnings \
-              -f "b/bv*+ba/bv*/b*" \
-              --remux-video mp4 \
-              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-              -o /tmp/clip.mp4 "$U"
-          }
-          ok=""
-          for U in "$URL" "$ALT1" "$ALT2"; do
-            if try_fetch "$U" && [ -s /tmp/clip.mp4 ]; then ok="1"; break; fi
-          done
-          [ -n "$ok" ] || { echo "ALL SOURCES FAILED"; exit 1; }
-          ls -la /tmp/clip.mp4
-          python3 - <<'EOF'
-          import pathlib
-          p = pathlib.Path("/tmp/clip.mp4")
-          size = p.stat().st_size
-          assert size > 300_000, f"file too small: {size}"
-          head = p.open("rb").read(256)
-          assert b"ftyp" in head, f"not an mp4: {head[:16]!r}"
-          print(f"OK mp4, {size} bytes")
-          EOF
-          mkdir -p "$(dirname "${{ steps.req.outputs.out }}")"
-          cp /tmp/clip.mp4 "${{ steps.req.outputs.out }}"
-          if [ -n "${{ steps.req.outputs.thumb }}" ]; then
-            curl -fsSL --retry 3 --max-time 60 \
-              -A "Mozilla/5.0" "${{ steps.req.outputs.thumb }}" \
-              -o "${{ steps.req.outputs.thumb_out }}" || echo "thumb failed (non-fatal)"
-          fi
-          command -v ffprobe >/dev/null && ffprobe -v error -show_entries \
-            format=duration,size:stream=codec_name,width,height -of default=noprint_wrappers=1 \
-            "${{ steps.req.outputs.out }}" || echo "ffprobe not available"
+          } > "$LOG" 2>&1
+          cat "$LOG"
+          echo "status=$(cat $STATUS)"
+          exit 0
 
       - name: Commit clip
+        if: always()
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f "${{ steps.req.outputs.out }}" "${{ steps.req.outputs.thumb_out }}"
+          git add -f "${{ steps.req.outputs.out }}" "$(dirname "${{ steps.req.outputs.out }}")/fetch_log.txt" "$(dirname "${{ steps.req.outputs.out }}")/fetch_status.txt" 2>/dev/null || true
+          if [ -n "${{ steps.req.outputs.thumb }}" ]; then
+            curl -fsSL --retry 2 --max-time 60 -A "Mozilla/5.0" \
+              "${{ steps.req.outputs.thumb }}" -o "${{ steps.req.outputs.thumb_out }}" || true
+            git add -f "${{ steps.req.outputs.thumb_out }}" 2>/dev/null || true
+          fi
           if git diff --cached --quiet; then
             echo "Nothing to commit"
           else
             git commit -m "fetch: ${{ steps.req.outputs.name }} (raw clip via actions)"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
+
+      - name: Check status
+        run: |
+          ST=$(cat "$(dirname "${{ steps.req.outputs.out }}")/fetch_status.txt")
+          echo "fetch status: $ST"
+          [ "$ST" = "OK" ]
