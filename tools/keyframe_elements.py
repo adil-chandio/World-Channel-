@@ -157,6 +157,38 @@ def png_spotlight(path: Path, cx: int = 417, cy: int = 827, rx: int = 215, ry: i
     Image.fromarray(img, "RGBA").save(path)
 
 
+def png_ring_arc(path: Path, seg: int = 0, size: int = 355) -> None:
+    im, d = _canvas(size, size)
+    start = -90 + seg * 45
+    d.arc([26, 26, size - 26, size - 26], start=start, end=start + 47,
+          fill=(230, 72, 58, 235), width=7)
+    glow = im.filter(ImageFilter.GaussianBlur(8))
+    im = Image.alpha_composite(glow, im)
+    im.save(path)
+
+
+def png_tick(path: Path) -> None:
+    im, d = _canvas(10, 16)
+    d.rounded_rectangle([2, 1, 8, 15], radius=3, fill=(255, 255, 255, 165))
+    im.save(path)
+
+
+def png_sweep(path: Path) -> None:
+    im, d = _canvas(360, 2100)
+    d.rectangle([110, 0, 250, 2100], fill=(255, 255, 255, 55))
+    im = im.filter(ImageFilter.GaussianBlur(60))
+    im = im.rotate(-16, expand=True, resample=Image.BICUBIC)
+    im.save(path)
+
+
+def png_badge(path: Path, text: str = "0.5x  SLOW") -> None:
+    im, d = _canvas(210, 78)
+    d.rounded_rectangle([0, 0, 209, 77], radius=14, fill=(8, 8, 12, 130))
+    d.rounded_rectangle([0, 0, 8, 77], radius=4, fill=(230, 72, 58, 225))
+    d.text((22, 24), text, font=_font(MONO_B, 32), fill=(245, 245, 248, 235))
+    im.save(path)
+
+
 def png_vignette(path: Path) -> None:
     import numpy as np
     yy, xx = np.mgrid[0:H, 0:W].astype("float64")
@@ -181,6 +213,10 @@ BUILDERS = {
     "bar": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 170])), int(e.get("w_px", 1080))),
     "progress": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 185])), int(e.get("w_px", 1080))),
     "ring_analytic": lambda p, e: png_ring_analytic(p, int(e.get("size", 355))),
+    "ring_arc": lambda p, e: png_ring_arc(p, int(e.get("seg", 0)), int(e.get("size", 355))),
+    "tick": lambda p, e: png_tick(p),
+    "sweep": lambda p, e: png_sweep(p),
+    "badge": lambda p, e: png_badge(p, e.get("text", "0.5x  SLOW")),
     "bracket": lambda p, e: png_bracket(p, e.get("dir", "TL")),
     "arrow": lambda p, e: png_arrow(p),
     "triangle": lambda p, e: png_triangle(p),
@@ -235,14 +271,18 @@ def apply(spec: dict) -> None:
         t_in = min(0.5, max(d * 0.25, 0.2))
         if "x_from" in el:
             xf = int(el["x_from"])
-            xexpr = f"{x}+({xf}-{x})*(1-min(max((t-{at})/{t_in},0),1))"
+            p = f"min(max((t-{at})/{t_in},0),1)"
+            pe = f"({p})*({p})*(3-2*({p}))"
+            xexpr = f"{x}+({xf}-{x})*(1-{pe})"
         else:
             xexpr = str(x)
         if "x_drift" in el:
             xexpr = f"{xexpr}+{float(el['x_drift'])}*(min(max((t-{at}),0),{d})/{max(d, 0.1)})"
         if "y_from" in el:
             yf = int(el["y_from"])
-            yexpr = f"{y}+({yf}-{y})*(1-min(max((t-{at})/{t_in},0),1))"
+            p = f"min(max((t-{at})/{t_in},0),1)"
+            pe = f"({p})*({p})*(3-2*({p}))"
+            yexpr = f"{y}+({yf}-{y})*(1-{pe})"
         else:
             yexpr = str(y)
         en = ""

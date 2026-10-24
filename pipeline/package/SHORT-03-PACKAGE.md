@@ -1,13 +1,13 @@
-# SHORT-03 — Upload Kit (v7 CREATIVE FORENSIC-FINAL)
+# SHORT-03 — Upload Kit (v8 NEXT-LEVEL)
 
 **Video:** `output/SHORT-03_FINAL_GFX.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
-**Version:** v7 — creative forensic motion-graphics, subject-safe (pixel-proven: bear-zone
-diff < 1.6 vs base = subject untouched). Keyframed elements: analytic ring ENCOMPASSING
-the subject (encircles, never covers) with slow drift + beat-pulse, spotlight isolation
-during "THE PAUSE" (subject pops, surround dims), 4 staged lock-on brackets at subject
-corners, margin callout arrow (tip stops 20px before subject), slim warning triangle,
-draw-on red underlines under key captions, edge chrome (timestamp/REC/corners/animated
-progress line/quiet CPW credit), micro flashes + 3.5px shakes. Zero cheap stickers.
+**Version:** v8 — next-level motion craft: **smoothstep easing** on every slide (buttery
+pro motion), **ring DRAW-ON** (8 arcs sweep around the subject 3.15→3.5s, then glow
+blooms + beat-pulse), **"0.5x SLOW" badge** slides in at the freeze, **story beat-ticks**
+grow along the bottom timeline at each caption (retention structure), **CTA light sweep**
+(premium logo-reveal shine over the end card). Subject-safe (bear diff < 2 vs base).
+All v7 elements retained: spotlight isolation, staged lock-on brackets, margin callout
+arrow, warning triangle, draw-on underlines, edge chrome, micro flashes/shakes.
 Base v4 quality stack retained (1440p enhanced master, voice-01, premium soft SFX, short-only CTA).
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 

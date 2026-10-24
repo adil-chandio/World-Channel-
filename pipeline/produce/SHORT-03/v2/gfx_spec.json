@@ -22,17 +22,42 @@
     {"kind": "progress", "color": [255, 255, 255, 185], "chunks": 24,
      "at": 0.3, "dur": 25.25, "x": 0, "y": 1870, "fade_in": 0.3, "fade_out": 0.3},
 
+    {"kind": "tick", "at": 0.30, "dur": 25.25, "x": 23,  "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 3.10, "dur": 22.45, "x": 137, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 7.50, "dur": 18.05, "x": 318, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 11.40, "dur": 14.15, "x": 478, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 13.60, "dur": 11.95, "x": 568, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 16.20, "dur": 9.35, "x": 674, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 20.20, "dur": 5.35, "x": 838, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+    {"kind": "tick", "at": 23.20, "dur": 2.35, "x": 960, "y": 1866, "fade_in": 0.2, "fade_out": 0.3},
+
     {"kind": "credit_bar", "text": "FOOTAGE: COLORADO PARKS & WILDLIFE",
      "at": 11.0, "dur": 3.4, "x": 55, "y": 1770, "x_from": -720,
      "fade_in": 0.25, "fade_out": 0.4},
 
+    {"kind": "ring_arc", "seg": 0, "size": 355,
+     "at": 3.15, "dur": 2.30, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 1, "size": 355,
+     "at": 3.20, "dur": 2.25, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 2, "size": 355,
+     "at": 3.25, "dur": 2.20, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 3, "size": 355,
+     "at": 3.30, "dur": 2.15, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 4, "size": 355,
+     "at": 3.35, "dur": 2.10, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 5, "size": 355,
+     "at": 3.40, "dur": 2.05, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 6, "size": 355,
+     "at": 3.45, "dur": 2.00, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+    {"kind": "ring_arc", "seg": 7, "size": 355,
+     "at": 3.50, "dur": 1.95, "x": 253, "y": 663, "fade_in": 0.14, "fade_out": 0.4},
+
     {"kind": "ring_analytic", "size": 355,
-     "at": 3.15, "dur": 2.3, "x": 253, "y": 663, "x_from": 225, "x_drift": 6,
-     "fade_in": 0.3, "fade_out": 0.4},
+     "at": 3.58, "dur": 1.87, "x": 253, "y": 663, "fade_in": 0.28, "fade_out": 0.4},
 
     {"kind": "ring_analytic", "size": 385,
-     "at": 4.15, "dur": 0.27, "x": 238, "y": 647,
-     "fade_in": 0.08, "fade_out": 0.12},
+     "at": 4.15, "dur": 0.32, "x": 238, "y": 647,
+     "fade_in": 0.1, "fade_out": 0.16},
 
     {"kind": "spotlight",
      "at": 7.25, "dur": 1.95, "x": 0, "y": 0, "fade_in": 0.3, "fade_out": 0.55},
@@ -49,6 +74,10 @@
     {"kind": "bracket", "dir": "BR",
      "at": 7.52, "dur": 1.68, "x": 530, "y": 900, "x_from": 552, "y_from": 922,
      "fade_in": 0.22, "fade_out": 0.3},
+
+    {"kind": "badge", "text": "0.5x  SLOW",
+     "at": 7.55, "dur": 2.05, "x": 830, "y": 701, "x_from": 960,
+     "fade_in": 0.25, "fade_out": 0.4},
 
     {"kind": "arrow",
      "at": 13.7, "dur": 2.15, "x": 13, "y": 773, "x_from": -207,
@@ -68,7 +97,11 @@
      "at": 23.28, "dur": 0.28, "x": 406, "y": 670, "fade_in": 0, "fade_out": 0},
 
     {"kind": "bar", "color": [230, 70, 58, 235], "w_px": 280,
-     "at": 23.56, "dur": 1.9, "x": 406, "y": 670, "fade_in": 0.12, "fade_out": 0.35}
+     "at": 23.56, "dur": 1.9, "x": 406, "y": 670, "fade_in": 0.12, "fade_out": 0.35},
+
+    {"kind": "sweep",
+     "at": 25.75, "dur": 1.45, "x": -520, "y": -80, "x_drift": 1650,
+     "fade_in": 0.25, "fade_out": 0.35}
   ],
   "shakes": [
     {"at": 0.12, "dur": 0.35, "amp": 3.5},
