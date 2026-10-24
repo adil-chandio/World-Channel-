@@ -1,8 +1,7 @@
 # Fetch a raw clip from a URL the sandbox cannot reach, using a GitHub-hosted
 # runner as the downloader, then commit it back to the same branch.
 # Supports direct mp4 URLs (curl) AND page URLs (yt-dlp) with alt-URL fallback.
-# ALWAYS commits pipeline/produce/<dir>/fetch_log.txt so failures are debuggable
-# even when Actions log retrieval is unavailable.
+# ALWAYS commits fetch_log.txt next to the clip so failures are debuggable.
 name: fetch-clip
 
 on:
@@ -42,78 +41,59 @@ jobs:
           EOF
 
       - name: Download clip
-        id: dl
         run: |
           set +e
-          OUTDIR=$(dirname "${{ steps.req.outputs.out }}")
+          OUTDIR="$(dirname '${{ steps.req.outputs.out }}')"
           mkdir -p "$OUTDIR"
           LOG="$OUTDIR/fetch_log.txt"
-          STATUS="$OUTDIR/fetch_status.txt"
-          echo "FAILED" > "$STATUS"
-          {
-            echo "=== fetch-clip $(date -u) ==="
-            echo "python: $(python3 --version)"
-            echo "pip install yt-dlp..."
-            python3 -m pip install --quiet yt-dlp 2>&1
-            echo "yt-dlp: $(yt-dlp --version 2>&1)"
-            try_url() {
-              U="$1"
-              if [ -z "$U" ]; then echo "[skip empty url]"; return 1; fi
-              echo ""
-              echo "=== Trying: $U"
-              rm -f /tmp/clip.mp4
-              if echo "$U" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
-                curl -fsSL --retry 2 --max-time 300 \
-                  -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-                  "$U" -o /tmp/clip.mp4 2>&1
-                echo "curl exit: $?"
-              else
-                yt-dlp --no-playlist --no-warnings \
-                  -f "b/bv*+ba/bv*/b*" --remux-video mp4 \
-                  -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-                  -o /tmp/clip.mp4 "$U" 2>&1
-                echo "yt-dlp exit: $?"
-              fi
-              if [ -s /tmp/clip.mp4 ]; then
-                echo "got file: $(ls -la /tmp/clip.mp4)"
-                return 0
-              fi
-              return 1
-            }
-            try_url "${{ steps.req.outputs.url }}"
-            if [ ! -s /tmp/clip.mp4 ]; then try_url "${{ steps.req.outputs.url_alt1 }}"; fi
-            if [ ! -s /tmp/clip.mp4 ]; then try_url "${{ steps.req.outputs.url_alt2 }}"; fi
-            echo ""
+          echo "FAILED" > "$OUTDIR/fetch_status.txt"
+          echo "=== fetch-clip $(date -u) ===" > "$LOG"
+          python3 -m pip install --quiet yt-dlp >> "$LOG" 2>&1
+          echo "pip exit: $?" >> "$LOG"
+          echo "yt-dlp version: $(python3 -m yt_dlp --version 2>&1)" >> "$LOG"
+          for U in '${{ steps.req.outputs.url }}' '${{ steps.req.outputs.url_alt1 }}' '${{ steps.req.outputs.url_alt2 }}'; do
+            if [ -z "$U" ]; then continue; fi
+            echo "" >> "$LOG"
+            echo "=== Trying $U" >> "$LOG"
+            rm -f /tmp/clip.mp4
+            case "$U" in
+              *.mp4|*.mp4\?*|*.m4v|*.mov)
+                curl -fsSL --retry 2 --max-time 300 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" "$U" -o /tmp/clip.mp4 >> "$LOG" 2>&1
+                echo "curl exit: $?" >> "$LOG"
+                ;;
+              *)
+                python3 -m yt_dlp --no-playlist --no-warnings -f "b/bv*+ba/bv*/b*" --remux-video mp4 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -o /tmp/clip.mp4 "$U" >> "$LOG" 2>&1
+                echo "yt-dlp exit: $?" >> "$LOG"
+                ;;
+            esac
             if [ -s /tmp/clip.mp4 ]; then
               SIZE=$(stat -c%s /tmp/clip.mp4)
-              HEAD=$(head -c 256 /tmp/clip.mp4 | xxd | head -4)
-              echo "size=$SIZE"
-              echo "head: $HEAD"
+              echo "got $SIZE bytes" >> "$LOG"
               if [ "$SIZE" -gt 300000 ]; then
-                echo "OK" > "$STATUS"
-                cp /tmp/clip.mp4 "${{ steps.req.outputs.out }}"
-              else
-                echo "file too small ($SIZE) - FAILED"
+                cp /tmp/clip.mp4 '${{ steps.req.outputs.out }}'
+                echo "OK" > "$OUTDIR/fetch_status.txt"
+                echo "SUCCESS from $U" >> "$LOG"
+                break
               fi
-            else
-              echo "ALL SOURCES FAILED"
             fi
-          } > "$LOG" 2>&1
+          done
+          echo "" >> "$LOG"
+          echo "final status: $(cat "$OUTDIR/fetch_status.txt")" >> "$LOG"
           cat "$LOG"
-          echo "status=$(cat $STATUS)"
-          exit 0
 
       - name: Commit clip
         if: always()
         run: |
-          set -e
+          set +e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f "${{ steps.req.outputs.out }}" "$(dirname "${{ steps.req.outputs.out }}")/fetch_log.txt" "$(dirname "${{ steps.req.outputs.out }}")/fetch_status.txt" 2>/dev/null || true
-          if [ -n "${{ steps.req.outputs.thumb }}" ]; then
-            curl -fsSL --retry 2 --max-time 60 -A "Mozilla/5.0" \
-              "${{ steps.req.outputs.thumb }}" -o "${{ steps.req.outputs.thumb_out }}" || true
-            git add -f "${{ steps.req.outputs.thumb_out }}" 2>/dev/null || true
+          OUTDIR="$(dirname '${{ steps.req.outputs.out }}')"
+          git add -f '${{ steps.req.outputs.out }}'
+          git add -f "$OUTDIR/fetch_log.txt"
+          git add -f "$OUTDIR/fetch_status.txt"
+          if [ -n '${{ steps.req.outputs.thumb }}' ]; then
+            curl -fsSL --retry 2 --max-time 60 -A "Mozilla/5.0" '${{ steps.req.outputs.thumb }}' -o '${{ steps.req.outputs.thumb_out }}'
+            git add -f '${{ steps.req.outputs.thumb_out }}'
           fi
           if git diff --cached --quiet; then
             echo "Nothing to commit"
@@ -124,6 +104,6 @@ jobs:
 
       - name: Check status
         run: |
-          ST=$(cat "$(dirname "${{ steps.req.outputs.out }}")/fetch_status.txt")
+          ST=$(cat "$(dirname '${{ steps.req.outputs.out }}')/fetch_status.txt")
           echo "fetch status: $ST"
           [ "$ST" = "OK" ]
