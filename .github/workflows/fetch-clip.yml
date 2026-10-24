@@ -1,6 +1,7 @@
 # Fetch a raw clip from a URL the sandbox cannot reach, using a GitHub-hosted
 # runner as the downloader, then commit it back to the same branch.
 # Triggered by any push that touches ops/clip-fetch-request.yml, or manually.
+# Supports direct mp4 URLs (curl) AND page URLs like BBC/CBS/YouTube (yt-dlp).
 name: fetch-clip
 
 on:
@@ -41,9 +42,22 @@ jobs:
         run: |
           set -e
           echo "Fetching: ${{ steps.req.outputs.url }}"
-          curl -fsSL --retry 3 --max-time 300 \
-            -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
-            "${{ steps.req.outputs.url }}" -o /tmp/clip.mp4
+          URL="${{ steps.req.outputs.url }}"
+          # 1) direct file URL -> curl first
+          if echo "$URL" | grep -qE '\.(mp4|m4v|mov)(\?|$)'; then
+            curl -fsSL --retry 3 --max-time 300 \
+              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+              "$URL" -o /tmp/clip.mp4 || echo "curl failed, will try yt-dlp"
+          fi
+          # 2) fallback: yt-dlp (BBC / CBS / YouTube / ex.co / generic pages)
+          if [ ! -s /tmp/clip.mp4 ]; then
+            pip install --quiet yt-dlp
+            yt-dlp --no-playlist --no-warnings \
+              -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" \
+              --merge-output-format mp4 \
+              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+              -o /tmp/clip.mp4 "$URL"
+          fi
           ls -la /tmp/clip.mp4
           python3 - <<'EOF'
           import sys, pathlib

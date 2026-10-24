@@ -1,11 +1,13 @@
 # Clip fetch request — processed by .github/workflows/fetch-clip.yml on push.
 # Edit `url` and/or `out`, commit+push: the workflow downloads the clip on a
 # GitHub Actions runner (full internet) and commits it to the same branch.
-name: CLIP-2026-006-woodland-park-bear
-url: https://video.twimg.com/ext_tw_video/1665761033024331776/pu/vid/1280x720/dQJoscHhWqxV17dU.mp4?tag=12
-thumb: https://pbs.twimg.com/ext_tw_video_thumb/1665761033024331776/pu/img/PVqHe8ktpH1brx8o.jpg
-out: pipeline/produce/S03-clips/woodland_raw_720p.mp4
-thumb_out: pipeline/produce/S03-clips/woodland_thumb.jpg
-# Provenance: CPW SE Region (Colorado Parks & Wildlife) official X post
-# https://x.com/CPW_SE/status/1665762810909847552 (video, 1/2 thread, 2023-06-05)
-# Source resolution 1920x1080, best mp4 variant 1280x720 h264 2176kbps, 31.55s
+name: CLIP-2026-007-steamboat-bear-shotgun
+url: https://www.bbc.com/news/videos/cewqzryz12zo
+thumb: https://assets3.cbsnewsstatic.com/hub/i/r/2026/06/27/2c9cb15c-1417-4916-96b7-7a35851ecdd5/thumbnail/1280x720/942fb5ddce54beaf65d42df482cf23c5/f19e3b47dcb9a3792bff607c4c3f0796.jpg
+out: pipeline/produce/S04-clips/steamboat_raw.mp4
+thumb_out: pipeline/produce/S04-clips/steamboat_thumb.jpg
+# Provenance: Nest garage camera of Justin Pickar (Steamboat Springs, CO), June 23 2026
+# encounter; Andy Kerrigan (52, handyman) "sitting shotgun eating my lunch" (NYT).
+# Clip shared by Pickar/Warder via Storyful. Coverage: NYT 2026-06-30, BBC 2026-07-01
+# (cewqzryz12zo, ~1:04 full clip), UPI 5051782756048, KDVR, CBS Colorado (00:43).
+# Rights: PENDING — Storyful-managed; credit Justin Pickar / Meg Warder via Storyful.
