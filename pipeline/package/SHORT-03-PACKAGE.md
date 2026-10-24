@@ -1,12 +1,14 @@
-# SHORT-03 — Upload Kit (v6 CLEAN PREMIUM)
+# SHORT-03 — Upload Kit (v7 CREATIVE FORENSIC-FINAL)
 
 **Video:** `output/SHORT-03_FINAL_GFX.mp4` (27.4s · 1080×1920 · 30fps · h264+aac crf18)
-**Version:** v6 — CLEAN premium motion-graphics: ALL elements at frame EDGES only,
-main picture/subject 100% undisturbed (pixel-verified). Chrome: subtle 3:02 AM timestamp
-badge, small REC dot, thin viewfinder corners, animated bottom progress line, quiet CPW
-credit strip (fly-in), soft vignette + micro impact flashes/shakes (3.5px max). Zero
-cheap/cringe elements. Base v4 quality stack retained (1440p enhanced master, voice-01,
-premium soft SFX, short-only CTA).
+**Version:** v7 — creative forensic motion-graphics, subject-safe (pixel-proven: bear-zone
+diff < 1.6 vs base = subject untouched). Keyframed elements: analytic ring ENCOMPASSING
+the subject (encircles, never covers) with slow drift + beat-pulse, spotlight isolation
+during "THE PAUSE" (subject pops, surround dims), 4 staged lock-on brackets at subject
+corners, margin callout arrow (tip stops 20px before subject), slim warning triangle,
+draw-on red underlines under key captions, edge chrome (timestamp/REC/corners/animated
+progress line/quiet CPW credit), micro flashes + 3.5px shakes. Zero cheap stickers.
+Base v4 quality stack retained (1440p enhanced master, voice-01, premium soft SFX, short-only CTA).
 **Source:** CLIP-2026-006 — CPW SE Region (Colorado Parks & Wildlife), Woodland Park, CO
 
 ---

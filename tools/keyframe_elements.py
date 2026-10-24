@@ -1,30 +1,22 @@
 #!/usr/bin/env python3
-"""Keyframed PNG-element compositor for vertical shorts.
+"""Keyframed PNG-element compositor for vertical shorts (v7 — subject-safe).
 
-Builds PNG elements (timestamp, REC, rings, glow, arrow, warning, credit bar,
-vignette, viewfinder corners, flashes) and composites them onto a video with
-keyframed animation: fades, fly-ins, blink, impact flashes, camera shakes.
+Creative motion-graphics layer: analytic rings AROUND the subject (never covering),
+spotlight isolation, lock-on brackets, margin callout arrows, draw-on underlines,
+edge chrome (timestamp/REC/corners/progress/credit), micro flashes + shakes.
+
+Subject-safety rule: elements encircle/point/frame the subject; they NEVER overlay
+the subject's own pixels. Everything is keyframed (fades, eased slides, staged
+timing, pulses, growth chunks) — no static copy-paste stickers.
 
 Usage:
     python3 tools/keyframe_elements.py spec.json
 
-Spec:
-{
-  "input": "output/SHORT-03_FINAL.mp4",
-  "output": "output/SHORT-03_FINAL_GFX.mp4",
-  "duration": 27.5,
-  "gfx_dir": "pipeline/produce/SHORT-03/v2/gfx",
-  "elements": [
-    {"kind": "timestamp", "text": "3:02 AM", "sub": "WOODLAND PARK, CO",
-     "at": 0.25, "dur": 25.6, "x": 55, "y": 62, "fade_in": 0.35, "fade_out": 0.4},
-    {"kind": "rec", "at": 0.3, "dur": 25.6, "x": 870, "y": 70, "blink": true},
-    {"kind": "credit_bar", "text": "FOOTAGE: COLORADO PARKS & WILDLIFE",
-     "at": 10.3, "dur": 3.2, "x": 60, "y": 1520, "x_from": -950,
-     "fade_in": 0.2, "fade_out": 0.35}
-  ],
-  "shakes": [{"at": 7.35, "dur": 0.6, "amp": 7}],
-  "flashes": [{"at": 7.32, "dur": 0.2, "alpha": 60}]
-}
+Element kinds: timestamp, rec, corners, bar, progress (growth chunks), credit_bar,
+ring_analytic, bracket (dir TL/TR/BL/BR), arrow, triangle, spotlight, vignette, flash.
+Animation fields: at, dur, x, y, fade_in, fade_out, x_from, y_from, x_drift,
+blink, enable_raw, w_px, chunks, color, alpha.
+Spec-level: shakes:[{at,dur,amp}], flashes:[{at,dur,alpha}].
 """
 from __future__ import annotations
 
@@ -91,40 +83,6 @@ def png_corners(path: Path) -> None:
     im.save(path)
 
 
-def png_ring(path: Path, size: int, rgb: tuple[int, int, int], width: int) -> None:
-    im, d = _canvas(size, size)
-    pad = width + 14
-    d.ellipse([pad, pad, size - pad, size - pad], outline=rgb + (255,), width=width)
-    glow = im.filter(ImageFilter.GaussianBlur(12))
-    im = Image.alpha_composite(glow, im)
-    im.save(path)
-
-
-def png_glow(path: Path, size: int) -> None:
-    im, d = _canvas(size, size)
-    d.ellipse([size * 0.18, size * 0.18, size * 0.82, size * 0.82], fill=(255, 255, 255, 110))
-    im = im.filter(ImageFilter.GaussianBlur(size // 7))
-    im.save(path)
-
-
-def png_arrow(path: Path) -> None:
-    im, d = _canvas(300, 170)
-    col, out = (255, 255, 255, 240), (10, 10, 12, 220)
-    shaft = [(8, 58), (178, 58), (178, 28), (282, 85), (178, 142), (178, 112), (8, 112)]
-    d.polygon(shaft, fill=col)
-    d.line(shaft + [shaft[0]], fill=out, width=6, joint="curve")
-    im.save(path)
-
-
-def png_triangle(path: Path) -> None:
-    im, d = _canvas(150, 140)
-    tri = [(75, 8), (142, 130), (8, 130)]
-    d.polygon(tri, fill=(235, 200, 70, 245), outline=(40, 32, 8, 255))
-    d.line(tri + [tri[0]], fill=(40, 32, 8, 255), width=6)
-    d.text((63, 48), "!", font=_font(SANS_B, 72), fill=(35, 28, 8, 255))
-    im.save(path)
-
-
 def png_credit_bar(path: Path, text: str) -> None:
     im, d = _canvas(660, 62)
     d.rounded_rectangle([0, 0, 659, 61], radius=12, fill=(8, 8, 12, 105))
@@ -135,6 +93,68 @@ def png_credit_bar(path: Path, text: str) -> None:
 def png_bar(path: Path, color: tuple[int, int, int, int], w: int = 1080) -> None:
     im = Image.new("RGBA", (w, 8), color)
     im.save(path)
+
+
+def png_ring_analytic(path: Path, size: int = 355) -> None:
+    im, d = _canvas(size, size)
+    c = size // 2
+    d.ellipse([10, 10, size - 10, size - 10], outline=(255, 255, 255, 150), width=3)
+    d.ellipse([26, 26, size - 26, size - 26], outline=(230, 72, 58, 225), width=7)
+    glow = im.filter(ImageFilter.GaussianBlur(10))
+    im = Image.alpha_composite(glow, im)
+    d = ImageDraw.Draw(im)
+    tick = 16
+    for x0, y0, x1, y1 in ((c - 2, 4, c + 2, 4 + tick),
+                           (c - 2, size - 4 - tick, c + 2, size - 4),
+                           (4, c - 2, 4 + tick, c + 2),
+                           (size - 4 - tick, c - 2, size - 4, c + 2)):
+        d.rectangle([x0, y0, x1, y1], fill=(255, 255, 255, 190))
+    im.save(path)
+
+
+def png_bracket(path: Path, dir_: str = "TL") -> None:
+    size, th = 68, 5
+    im, d = _canvas(size, size)
+    col = (255, 255, 255, 210)
+    d.rectangle([0, 0, size, th], fill=col)
+    d.rectangle([0, 0, th, size], fill=col)
+    d.rectangle([th + 3, th + 3, th + 9, th + 9], fill=(230, 70, 58, 235))
+    if dir_ == "TR":
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
+    elif dir_ == "BL":
+        im = im.transpose(Image.FLIP_TOP_BOTTOM)
+    elif dir_ == "BR":
+        im = im.transpose(Image.ROTATE_180)
+    im.save(path)
+
+
+def png_arrow(path: Path) -> None:
+    im, d = _canvas(240, 110)
+    white, red = (255, 255, 255, 238), (230, 70, 58, 235)
+    d.line([(18, 55), (178, 55)], fill=white, width=7)
+    d.polygon([(170, 26), (232, 55), (170, 84)], fill=white)
+    d.ellipse([2, 43, 26, 67], fill=red)
+    glow = im.filter(ImageFilter.GaussianBlur(5))
+    im = Image.alpha_composite(glow, im)
+    im.save(path)
+
+
+def png_triangle(path: Path) -> None:
+    im, d = _canvas(120, 110)
+    tri = [(60, 8), (112, 100), (8, 100)]
+    d.line(tri + [tri[0]], fill=(235, 200, 80, 245), width=7, joint="curve")
+    d.text((52, 36), "!", font=_font(SANS_B, 56), fill=(235, 200, 80, 255))
+    im.save(path)
+
+
+def png_spotlight(path: Path, cx: int = 417, cy: int = 827, rx: int = 215, ry: int = 265) -> None:
+    import numpy as np
+    yy, xx = np.mgrid[0:H, 0:W].astype("float64")
+    r = np.sqrt(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2)
+    a = np.clip((r - 0.92) * 320, 0, 118).astype("uint8")
+    img = np.zeros((H, W, 4), dtype="uint8")
+    img[..., 3] = a
+    Image.fromarray(img, "RGBA").save(path)
 
 
 def png_vignette(path: Path) -> None:
@@ -157,14 +177,14 @@ BUILDERS = {
     "timestamp": lambda p, e: png_timestamp(p, e.get("text", "00:00 AM"), e.get("sub", "")),
     "rec": lambda p, e: png_rec(p),
     "corners": lambda p, e: png_corners(p),
-    "ring_red": lambda p, e: png_ring(p, int(e.get("size", 260)), (225, 58, 48), int(e.get("width", 10))),
-    "ring_white": lambda p, e: png_ring(p, int(e.get("size", 300)), (255, 255, 255), int(e.get("width", 9))),
-    "glow": lambda p, e: png_glow(p, int(e.get("size", 600))),
-    "arrow": lambda p, e: png_arrow(p),
-    "triangle": lambda p, e: png_triangle(p),
     "credit_bar": lambda p, e: png_credit_bar(p, e.get("text", "")),
     "bar": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 170])), int(e.get("w_px", 1080))),
     "progress": lambda p, e: png_bar(p, tuple(e.get("color", [255, 255, 255, 185])), int(e.get("w_px", 1080))),
+    "ring_analytic": lambda p, e: png_ring_analytic(p, int(e.get("size", 355))),
+    "bracket": lambda p, e: png_bracket(p, e.get("dir", "TL")),
+    "arrow": lambda p, e: png_arrow(p),
+    "triangle": lambda p, e: png_triangle(p),
+    "spotlight": lambda p, e: png_spotlight(p),
     "vignette": lambda p, e: png_vignette(p),
 }
 
@@ -175,10 +195,11 @@ def build_pngs(elements: list[dict], gfx: Path) -> list[Path]:
     for i, el in enumerate(elements):
         kind = el["kind"]
         if kind == "flash":
-            p = gfx / f"el_{i:02d}_flash.png"
+            p = gfx / f"el_{i:03d}_flash.png"
             png_flash(p, int(el.get("alpha", 70)))
         else:
-            p = gfx / f"el_{i:02d}_{kind}.png"
+            tag = el.get("dir", kind)
+            p = gfx / f"el_{i:03d}_{kind}_{tag}.png"
             BUILDERS[kind](p, el)
         out.append(p)
     return out
@@ -211,15 +232,16 @@ def apply(spec: dict) -> None:
 
         x = int(el.get("x", 0))
         y = int(el.get("y", 0))
+        t_in = min(0.5, max(d * 0.25, 0.2))
         if "x_from" in el:
             xf = int(el["x_from"])
-            t_in = min(0.5, max(d * 0.25, 0.2))
             xexpr = f"{x}+({xf}-{x})*(1-min(max((t-{at})/{t_in},0),1))"
         else:
             xexpr = str(x)
+        if "x_drift" in el:
+            xexpr = f"{xexpr}+{float(el['x_drift'])}*(min(max((t-{at}),0),{d})/{max(d, 0.1)})"
         if "y_from" in el:
             yf = int(el["y_from"])
-            t_in = min(0.5, max(d * 0.25, 0.2))
             yexpr = f"{y}+({yf}-{y})*(1-min(max((t-{at})/{t_in},0),1))"
         else:
             yexpr = str(y)
@@ -250,31 +272,38 @@ def apply(spec: dict) -> None:
           f"shakes={len(spec.get('shakes', []))} flashes={len(spec.get('flashes', []))}")
 
 
+def expand(elements: list[dict]) -> list[dict]:
+    """Expand progress/underline growth elements into discrete keyframe chunks."""
+    out: list[dict] = []
+    for el in elements:
+        if el.get("kind") == "progress":
+            n = int(el.pop("chunks", 24))
+            at, dur = float(el["at"]), float(el["dur"])
+            x = int(el.get("x", 0))
+            y = int(el.get("y", 0))
+            col = el.get("color", [255, 255, 255, 185])
+            full = int(el.get("w_px", 1080))
+            for k in range(n):
+                t0 = at + dur * k / n
+                t1 = at + dur * (k + 1) / n
+                out.append({
+                    "kind": "bar", "color": col,
+                    "w_px": max(2, int(full * (k + 1) / n)),
+                    "at": t0, "dur": t1 - t0, "x": x, "y": y,
+                    "fade_in": 0, "fade_out": 0,
+                    "enable_raw": f"between(t,{t0:.3f},{t1 + 0.25:.3f})",
+                })
+        else:
+            out.append(el)
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("spec")
     args = ap.parse_args()
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
-    expanded: list[dict] = []
-    for el in spec.get("elements", []):
-        if el.get("kind") == "progress":
-            n = int(el.pop("chunks", 30))
-            at, dur = float(el["at"]), float(el["dur"])
-            y = int(el.get("y", 0))
-            col = el.get("color", [255, 255, 255, 185])
-            for k in range(n):
-                t0 = at + dur * k / n
-                t1 = at + dur * (k + 1) / n
-                expanded.append({
-                    "kind": "bar", "color": col,
-                    "w_px": max(2, int(1080 * (k + 1) / n)),
-                    "at": t0, "dur": t1 - t0, "x": 0, "y": y,
-                    "fade_in": 0, "fade_out": 0,
-                    "enable_raw": f"between(t,{t0:.3f},{t1 + 0.25:.3f})",
-                })
-        else:
-            expanded.append(el)
-    spec["elements"] = expanded
+    spec["elements"] = expand(spec.get("elements", []))
     for fl in spec.get("flashes", []):
         spec.setdefault("elements", []).append({
             "kind": "flash", "alpha": fl.get("alpha", 70),

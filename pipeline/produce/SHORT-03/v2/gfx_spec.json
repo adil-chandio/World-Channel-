@@ -19,12 +19,56 @@
     {"kind": "bar", "color": [22, 22, 28, 115],
      "at": 0.3, "dur": 25.25, "x": 0, "y": 1868, "fade_in": 0.3, "fade_out": 0.3},
 
-    {"kind": "progress", "color": [255, 255, 255, 185], "chunks": 30,
+    {"kind": "progress", "color": [255, 255, 255, 185], "chunks": 24,
      "at": 0.3, "dur": 25.25, "x": 0, "y": 1870, "fade_in": 0.3, "fade_out": 0.3},
 
     {"kind": "credit_bar", "text": "FOOTAGE: COLORADO PARKS & WILDLIFE",
      "at": 11.0, "dur": 3.4, "x": 55, "y": 1770, "x_from": -720,
-     "fade_in": 0.25, "fade_out": 0.4}
+     "fade_in": 0.25, "fade_out": 0.4},
+
+    {"kind": "ring_analytic", "size": 355,
+     "at": 3.15, "dur": 2.3, "x": 253, "y": 663, "x_from": 225, "x_drift": 6,
+     "fade_in": 0.3, "fade_out": 0.4},
+
+    {"kind": "ring_analytic", "size": 385,
+     "at": 4.15, "dur": 0.27, "x": 238, "y": 647,
+     "fade_in": 0.08, "fade_out": 0.12},
+
+    {"kind": "spotlight",
+     "at": 7.25, "dur": 1.95, "x": 0, "y": 0, "fade_in": 0.3, "fade_out": 0.55},
+
+    {"kind": "bracket", "dir": "TL",
+     "at": 7.40, "dur": 1.8, "x": 264, "y": 674, "x_from": 242, "y_from": 652,
+     "fade_in": 0.22, "fade_out": 0.3},
+    {"kind": "bracket", "dir": "TR",
+     "at": 7.48, "dur": 1.72, "x": 530, "y": 674, "x_from": 552, "y_from": 652,
+     "fade_in": 0.22, "fade_out": 0.3},
+    {"kind": "bracket", "dir": "BL",
+     "at": 7.44, "dur": 1.76, "x": 264, "y": 900, "x_from": 242, "y_from": 922,
+     "fade_in": 0.22, "fade_out": 0.3},
+    {"kind": "bracket", "dir": "BR",
+     "at": 7.52, "dur": 1.68, "x": 530, "y": 900, "x_from": 552, "y_from": 922,
+     "fade_in": 0.22, "fade_out": 0.3},
+
+    {"kind": "arrow",
+     "at": 13.7, "dur": 2.15, "x": 13, "y": 773, "x_from": -207,
+     "fade_in": 0.3, "fade_out": 0.35},
+
+    {"kind": "triangle",
+     "at": 20.25, "dur": 2.6, "x": 54, "y": 565, "x_from": -76,
+     "fade_in": 0.22, "fade_out": 0.3},
+
+    {"kind": "progress", "color": [230, 70, 58, 235], "chunks": 8, "w_px": 280,
+     "at": 20.32, "dur": 0.28, "x": 406, "y": 670, "fade_in": 0, "fade_out": 0},
+
+    {"kind": "bar", "color": [230, 70, 58, 235], "w_px": 280,
+     "at": 20.60, "dur": 2.25, "x": 406, "y": 670, "fade_in": 0.12, "fade_out": 0.4},
+
+    {"kind": "progress", "color": [230, 70, 58, 235], "chunks": 8, "w_px": 280,
+     "at": 23.28, "dur": 0.28, "x": 406, "y": 670, "fade_in": 0, "fade_out": 0},
+
+    {"kind": "bar", "color": [230, 70, 58, 235], "w_px": 280,
+     "at": 23.56, "dur": 1.9, "x": 406, "y": 670, "fade_in": 0.12, "fade_out": 0.35}
   ],
   "shakes": [
     {"at": 0.12, "dur": 0.35, "amp": 3.5},
