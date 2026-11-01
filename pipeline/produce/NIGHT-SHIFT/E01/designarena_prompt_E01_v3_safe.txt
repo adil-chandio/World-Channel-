@@ -1,0 +1,29 @@
+Cinematic 3D animation short film, stylized fur, soft volumetric NIGHT lighting, moonlight + warm porch light contrast, Pixar-quality character animation with expressive eyes, handheld documentary camera feel, VERTICAL 1080x1920, 30fps, exactly 40 seconds. A sweet, funny, family-friendly story about a mischievous baby bear cub on a midnight snack adventure.
+
+=== AUDIO / VOICEOVER (self-contained — no external file needed) ===
+Create the video's AUDIO TRACK: a voiceover narration of the script below, spoken by a dry, mischievous, warm male storyteller — like a little bear cub telling a funny bedtime story about his night. Comedic timing, natural dramatic pauses at the "…" marks, a proud whisper on the final line. Sync every animation beat to these narration timings exactly. Add subtle night ambience (crickets, light wind) and gentle playful background music under the voice. Sound effects: door handle click, crunching bites, camera flash pop, soft wooden bonk, slow-motion footsteps. If an external voiceover audio file is attached, use that file as the narration instead and sync the animation to it.
+
+NARRATION SCRIPT (exact words, timed to the storyboard):
+[0.0-2.8s] "Sandwich. Chips. Cookies. My greatest adventure."
+[2.8-8.8s] "Three in the morning. A pickup truck in the driveway. Door unlocked. So kind. I give it a pull… and we're in."
+[8.8-14.5s] "Jackpot. I'm mid-bite when the human opens the door… and just stands there. Frozen."
+[14.5-21.0s] "Then he takes a picture. Really, sir? Then he comes back with a plank of wood."
+[21.0-27.0s] "Buddy… this is a sandwich, not a fortress. So I leave. Out the driver's side. With dignity."
+[27.5-31.0s] "…Worth it."
+[31-40s] (no narration — music and atmosphere only)
+
+=== CHARACTER (keep identical in all shots) ===
+BANDIT: a young black bear cub — round ears, a CINNAMON-COLORED MUZZLE, a small TORN NOTCH IN HIS LEFT EAR, and a small RED BACKPACK on his back. Mischievous, friendly, confident eyes. Curious and playful like a toddler exploring.
+THE HUMAN: only ever a soft-focus silhouette or back-view, grey hoodie, no face detail. Never threatening — just a sleepy, confused neighbor.
+
+=== HARD RULES ===
+Absolutely NO text, NO captions, NO watermarks, NO logos, NO UI anywhere in any frame. No camera timestamps. Clean cinematic frames only. Gentle comedic tone throughout — nothing scary, nothing dangerous.
+
+=== STORYBOARD (timed to the narration) ===
+- 0.0-2.8s: EXTREME CLOSE-UP on the prize: a wrapped sandwich, a bag of chips and cookies glowing in a sliver of moonlight on a truck passenger seat. A furry paw reaches into frame and grabs the sandwich. Slow push-in.
+- 2.8-8.8s: WIDE SHOT. 3 AM, quiet suburban driveway, a grey pickup truck parked, light fog, stars above. BANDIT trots to the passenger door, stands on hind legs, pulls the door handle — the door swings open. Low-angle hero shot as it opens.
+- 8.8-14.5s: INTERIOR. BANDIT sitting on the passenger seat mid-bite, crumbs flying, pure joy. Suddenly the door frame is blocked by THE HUMAN's silhouette. Both freeze. Comedy freeze-frame beat, hold 1 second. Shallow depth of field, moonlight rim light on the cub.
+- 14.5-21.0s: The Human raises a phone — a camera FLASH pops. CUT TO: The Human walking back toward the truck carrying a long wooden plank like a toy lance, absurd wide stance, comedy framing. BANDIT watches from the seat, unimpressed, head tilted.
+- 21.0-27.0s: BANDIT rolls his eyes, hops over the center console to the driver's seat, and exits out the DRIVER'S side door. SLOW-MOTION dignified walk away from the truck, backpack on, sandwich in paw, chin up.
+- 27.5-31.0s: EXTREME CLOSE-UP on BANDIT's face: a slow smirk, one eyebrow raised, a crumb on his muzzle. Hold.
+- 31-40s: FINAL SHOT. BANDIT walks away down the driveway into the night, small red backpack visible. Camera slowly pulls UP and TILTS to the starry sky, ending on his tiny silhouette walking under the moon. Peaceful, funny, warm ending. Last 2 seconds: gentle freeze frame.
