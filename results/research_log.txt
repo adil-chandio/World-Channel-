@@ -1,0 +1,61 @@
+=== yt-research Sun Nov  1 17:52:13 UTC 2026 ===
+yt-dlp: 2026.10.26
+[search] caught on camera 2026
+  -> 20 new (err: none)
+[search] bear caught on camera
+  -> 20 new (err: none)
+[search] security camera captured
+  -> 18 new (err: none)
+[search] ring camera viral video
+  -> 20 new (err: none)
+[search] animals caught on camera
+  -> 20 new (err: none)
+[search] viral animal video 2026
+  -> 20 new (err: none)
+[search] scary caught on camera
+  -> 19 new (err: none)
+[search] caught on camera explained
+  -> 19 new (err: none)
+[search] bear breaks into car
+  -> 20 new (err: none)
+[search] wildlife camera trap
+  -> 20 new (err: none)
+[pass1] 196 unique videos
+[pass2] profiling 8 channels
+[channel] skip dopdoc and Yuliia Outdoor (no url)
+[channel] WOW TV https://www.youtube.com/channel/UCBoD9qWJVIwuqFMpImiqqDw/videos
+  -> 15 lines (err: none)
+[channel] ourtrips2go https://www.youtube.com/channel/UCMx8jvJDuxrmNzhx7UAv5xw/videos
+  -> 15 lines (err: none)
+[channel] 1bigdust72 https://www.youtube.com/channel/UCKFN3xfzzEEirlGGHgUCCmA/videos
+  -> 15 lines (err: none)
+[channel] Inside Edition https://www.youtube.com/channel/UC9k-yiEpRHMNVOnOi_aQK8w/videos
+  -> 15 lines (err: none)
+[channel] Ring https://www.youtube.com/channel/UCSDG3M0e2mGX9_qtHEtzj2Q/videos
+  -> 15 lines (err: none)
+[channel] Vlambose https://www.youtube.com/channel/UCAYiCmKbBiECn8xt8_Vkzhw/videos
+  -> 15 lines (err: none)
+[channel] A&E https://www.youtube.com/channel/UCNIFiHaLZkYASaWDdkC1njg/videos
+  -> 15 lines (err: none)
+[detail] eK0pO79YkvY Bear Attack, Man is trying to run away from attacking Bear: 
+[detail] wL99SAaw3sw When Animals Go On A Rampage And Got Caught On Camera !
+[detail] 0UhVwaPfhHM Polar Bear Encounter
+[detail] 8kjY9sKdHlY INSTANT KARMA bear gets hit in the nuts for messing with my 
+[detail] aHJ8wO3io5Y 7-Year-Old Encounters Massive Bear While Riding Scooter
+[detail] mZrjiyN4ZDs Taylor Talks to Her Neighbor On Ring Video Doorbell After Ru
+[detail] 6Dh_w0HxVO4 When Bears Go On A Rampage Caught on Camera!
+[detail] xApoL_UdFvM 500-POUND Bear REPEATEDLY Steals Candy from Gas Station | Cu
+[detail] cO1grYvfk5g Incredible footage of cameraman and hungry polar bear
+[detail] D4n2TiAlT7U KATSEYE - Animal (Live From The Tonight Show With Jimmy Fall
+[detail] Y7paF72Gu0M Wild Animals Invading Cities Caught on Camera
+[detail] UbeKyjZoAuI Secret Life of Pets Caught on Camera
+[detail] 06o1AppgIH0 Caught in 4K! 😂 Best Security Camera Fails of 2025 So Far
+[detail] 1IlL6dg_CS8 7 Disturbing Videos Captured on Ring/Doorbell Cameras
+[detail] tZMq9lhS7sQ My Best Animal Videos of 2026!
+[detail] To8iAiaFw94 Scary Comp. V82
+[detail] 2nXAD-0KGZs 10 SCARY Videos Caught On Security Camera!!
+[detail] z6BgkP65YBc Bears attack our car at Yellowstone
+[detail] 9YYx1tokxIY the craziest animal videos i've ever seen
+[detail] tkqVA2O4VpI Caught in 4K 😆 Best Security Camera Fails of 2024
+[pass3] 20 details
+DONE
