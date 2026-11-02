@@ -1,61 +1,56 @@
-=== yt-research Sun Nov  1 17:52:13 UTC 2026 ===
+=== yt-research Mon Nov  2 00:00:52 UTC 2026 ===
 yt-dlp: 2026.10.26
-[search] caught on camera 2026
+[search] emotional story animation shorts
   -> 20 new (err: none)
-[search] bear caught on camera
+[search] stickman animation story
   -> 20 new (err: none)
-[search] security camera captured
+[search] storytime animation
+  -> 20 new (err: none)
+[search] animal shorts viral 2026
+  -> 20 new (err: none)
+[search] viral shorts 2026 trending
+  -> 17 new (err: none)
+[search] wholesome animal video
+  -> 20 new (err: none)
+[search] sad story animation
+  -> 13 new (err: none)
+[search] ai animation shorts
   -> 18 new (err: none)
-[search] ring camera viral video
+[search] bear viral shorts
   -> 20 new (err: none)
-[search] animals caught on camera
-  -> 20 new (err: none)
-[search] viral animal video 2026
-  -> 20 new (err: none)
-[search] scary caught on camera
+[search] animated storytime shorts
   -> 19 new (err: none)
-[search] caught on camera explained
-  -> 19 new (err: none)
-[search] bear breaks into car
-  -> 20 new (err: none)
-[search] wildlife camera trap
-  -> 20 new (err: none)
-[pass1] 196 unique videos
+[pass1] 187 unique videos
 [pass2] profiling 8 channels
+[channel] Dogs Inc https://www.youtube.com/channel/UCaZX9C1LPOpzsJfZe5BxDjw/videos
+  -> 15 lines (err: none)
+[channel] CGMeetup https://www.youtube.com/channel/UCrSvhrtUgpZT3EU0x1Zoy-w/videos
+  -> 15 lines (err: none)
+[channel] GULU Animation https://www.youtube.com/channel/UCEAL-rbCTrdmNAYpohMRT_g/videos
+  -> 7 lines (err: none)
+[channel] TheCGBros https://www.youtube.com/channel/UC-1rx8j9Ggp8mp4uD0ZdEIA/videos
+  -> 15 lines (err: none)
 [channel] skip dopdoc and Yuliia Outdoor (no url)
-[channel] WOW TV https://www.youtube.com/channel/UCBoD9qWJVIwuqFMpImiqqDw/videos
+[channel] Stratostorm https://www.youtube.com/channel/UC7bLY5wa6rzuj7rMy6MXISw/videos
+  -> 4 lines (err: none)
+[channel] MAD LAB https://www.youtube.com/channel/UCen0ko30XIeN5IARS3E_Znw/videos
   -> 15 lines (err: none)
-[channel] ourtrips2go https://www.youtube.com/channel/UCMx8jvJDuxrmNzhx7UAv5xw/videos
+[channel] Horror Skunx https://www.youtube.com/channel/UCTjF8TNC7blVsBtWyMrsj4A/videos
   -> 15 lines (err: none)
-[channel] 1bigdust72 https://www.youtube.com/channel/UCKFN3xfzzEEirlGGHgUCCmA/videos
-  -> 15 lines (err: none)
-[channel] Inside Edition https://www.youtube.com/channel/UC9k-yiEpRHMNVOnOi_aQK8w/videos
-  -> 15 lines (err: none)
-[channel] Ring https://www.youtube.com/channel/UCSDG3M0e2mGX9_qtHEtzj2Q/videos
-  -> 15 lines (err: none)
-[channel] Vlambose https://www.youtube.com/channel/UCAYiCmKbBiECn8xt8_Vkzhw/videos
-  -> 15 lines (err: none)
-[channel] A&E https://www.youtube.com/channel/UCNIFiHaLZkYASaWDdkC1njg/videos
-  -> 15 lines (err: none)
+[detail] 07d2dXHYb94 Pip | A Short Animated Film by Dogs Inc
+[detail] lTxn2BuqyzU CGI Animated Short Film: "Watermelon A Cautionary Tale" by K
+[detail] XXhsh9nvgyg CGI Animated Short Film: "First Comes Love" by Daniel Ceball
+[detail] Wlf1T5nrO50 The Bread - Animated Short Film by GULU
+[detail] j8PDTJNaPc0 CGI Animated Short Film: "Don't Croak" by Daun Kim | CGMeetu
+[detail] D_Rx4qZ8QRc CGI 3D Animated Short: "Take Me Home" - by Nair Archawattana
+[detail] P7k2MkVYLDE CGI Animated Short: "Runaway" - by Susan Yung, Emily Springe
 [detail] eK0pO79YkvY Bear Attack, Man is trying to run away from attacking Bear: 
-[detail] wL99SAaw3sw When Animals Go On A Rampage And Got Caught On Camera !
-[detail] 0UhVwaPfhHM Polar Bear Encounter
-[detail] 8kjY9sKdHlY INSTANT KARMA bear gets hit in the nuts for messing with my 
-[detail] aHJ8wO3io5Y 7-Year-Old Encounters Massive Bear While Riding Scooter
-[detail] mZrjiyN4ZDs Taylor Talks to Her Neighbor On Ring Video Doorbell After Ru
-[detail] 6Dh_w0HxVO4 When Bears Go On A Rampage Caught on Camera!
-[detail] xApoL_UdFvM 500-POUND Bear REPEATEDLY Steals Candy from Gas Station | Cu
-[detail] cO1grYvfk5g Incredible footage of cameraman and hungry polar bear
-[detail] D4n2TiAlT7U KATSEYE - Animal (Live From The Tonight Show With Jimmy Fall
-[detail] Y7paF72Gu0M Wild Animals Invading Cities Caught on Camera
-[detail] UbeKyjZoAuI Secret Life of Pets Caught on Camera
-[detail] 06o1AppgIH0 Caught in 4K! 😂 Best Security Camera Fails of 2025 So Far
-[detail] 1IlL6dg_CS8 7 Disturbing Videos Captured on Ring/Doorbell Cameras
-[detail] tZMq9lhS7sQ My Best Animal Videos of 2026!
-[detail] To8iAiaFw94 Scary Comp. V82
-[detail] 2nXAD-0KGZs 10 SCARY Videos Caught On Security Camera!!
-[detail] z6BgkP65YBc Bears attack our car at Yellowstone
-[detail] 9YYx1tokxIY the craziest animal videos i've ever seen
-[detail] tkqVA2O4VpI Caught in 4K 😆 Best Security Camera Fails of 2024
-[pass3] 20 details
+[detail] Bl1FOKpFY2Q UMBRELLA | Oscar® Qualified and Multi-Award Winning Animated
+[detail] 60g7D6QF1xM Animals Reunited With Owners After Years !
+[detail] sZ6SvR9OxK0 CatNap's Sad Origin Story (From Poppy Playtime 3)
+[detail] 9HEkdFzHLHs "A Folded Wish" | CGI Animated Short Film (2020)
+[detail] ZW27ubHprMo Best Moments Of Animals That Asked People for Help in 2022 !
+[detail] JOWiPx5VRUU Scarlett - animated short (Scarlett Contra el Cancer)
+[detail] HpoVwhSVI38 Mom - A Mother, Missing Home // Viddsee.com
+[pass3] 15 details
 DONE
