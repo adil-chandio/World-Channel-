@@ -1,9 +1,7 @@
-# yt-research request — edit queries_json, commit to trigger the run.
-# Runner uses yt-dlp (search + channel + detail passes) and ALWAYS commits:
-#   results/yt_search/  results/yt_channels/  results/yt_details/  results/research_log.txt
-name: monetize-niche-research-2026-11
-queries_json: '["caught on camera 2026", "bear caught on camera", "security camera captured", "ring camera viral video", "animals caught on camera", "viral animal video 2026", "scary caught on camera", "caught on camera explained", "bear breaks into car", "wildlife camera trap"]'
+# yt-research round 2 — animated storytelling + shorts trends + growing channels
+name: round2-animation-shorts-2026-11
+queries_json: '["emotional story animation shorts", "stickman animation story", "storytime animation", "animal shorts viral 2026", "viral shorts 2026 trending", "wholesome animal video", "sad story animation", "ai animation shorts", "bear viral shorts", "animated storytime shorts"]'
 search_n: 20
-detail_n: 20
+detail_n: 15
 max_channels: 8
 channel_videos: 15
