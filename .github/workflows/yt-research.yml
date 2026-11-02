@@ -1,0 +1,174 @@
+# YouTube research via a GitHub-hosted runner (the sandbox cannot reach youtube.com).
+# Three passes: search -> channel profiles -> details for top videos. Self-logging;
+# results/research_log.txt is the debug channel. Everything is committed back.
+name: yt-research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "ops/yt-research-request.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Parse request
+        run: |
+          python3 - <<'EOF'
+          import re, json, pathlib, os
+          req = pathlib.Path("ops/yt-research-request.yml").read_text()
+          def val(key, default=""):
+              m = re.search(rf"^{key}:\s*(.+)$", req, re.M)
+              return m.group(1).strip() if m else default
+          qraw = val("queries_json", "[]")
+          queries = json.loads(qraw.strip("'").replace("\\'", "'"))
+          cfg = {
+            "queries": queries,
+            "search_n": int(val("search_n", "20")),
+            "detail_n": int(val("detail_n", "20")),
+            "max_channels": int(val("max_channels", "8")),
+            "channel_videos": int(val("channel_videos", "15")),
+          }
+          pathlib.Path("yt_cfg.json").write_text(json.dumps(cfg, indent=1))
+          print(f"queries: {len(queries)}")
+          EOF
+
+      - name: Run research
+        run: |
+          set +e
+          mkdir -p results/yt_search results/yt_channels results/yt_details
+          LOG=results/research_log.txt
+          echo "=== yt-research $(date -u) ===" > "$LOG"
+          python3 -m pip install --quiet yt-dlp >> "$LOG" 2>&1
+          echo "yt-dlp: $(python3 -m yt_dlp --version 2>&1)" >> "$LOG"
+          python3 - <<'PYEOF' >> "$LOG" 2>&1
+          import json, subprocess, pathlib, re, time
+
+          cfg = json.loads(pathlib.Path("yt_cfg.json").read_text())
+          YTD = ["python3", "-m", "yt_dlp", "--no-warnings", "--ignore-errors"]
+
+          def run(args, timeout=300):
+              try:
+                  r = subprocess.run(YTD + args, capture_output=True, text=True, timeout=timeout)
+                  return r.stdout, r.stderr
+              except Exception as e:
+                  return "", str(e)
+
+          def slug(s):
+              return re.sub(r"[^a-z0-9]+", "-", (s or "x").lower()).strip("-")[:60]
+
+          # ---- PASS 1: searches ----
+          all_entries = {}
+          for q in cfg["queries"]:
+              target = f"ytsearch{cfg['search_n']}:{q}"
+              print(f"[search] {q}")
+              out, err = run(["--flat-playlist", "--dump-json", target])
+              n = 0
+              for line in out.splitlines():
+                  line = line.strip()
+                  if not line.startswith("{"):
+                      continue
+                  try:
+                      e = json.loads(line)
+                  except Exception:
+                      continue
+                  e["_query"] = q
+                  vid = e.get("id")
+                  if vid and vid not in all_entries:
+                      all_entries[vid] = e
+                      n += 1
+              pathlib.Path(f"results/yt_search/{slug(q)}.jsonl").write_text(out)
+              print(f"  -> {n} new (err: {(err or 'none')[:160]})")
+              time.sleep(0.5)
+
+          combined = sorted(all_entries.values(), key=lambda e: (e.get("view_count") or 0), reverse=True)
+          pathlib.Path("results/yt_search/_combined.json").write_text(json.dumps(combined, indent=1))
+          print(f"[pass1] {len(combined)} unique videos")
+
+          # ---- PASS 2: channel profiles ----
+          ch = {}
+          for e in combined:
+              cid = e.get("channel_id") or e.get("channel")
+              if not cid:
+                  continue
+              d = ch.setdefault(cid, {"channel": e.get("channel"), "channel_id": e.get("channel_id"),
+                                      "channel_url": e.get("channel_url"), "n": 0, "max_views": 0, "total_views": 0})
+              d["n"] += 1
+              v = e.get("view_count") or 0
+              d["max_views"] = max(d["max_views"], v)
+              d["total_views"] += v
+          top = sorted(ch.values(), key=lambda d: (d["max_views"], d["n"]), reverse=True)[:cfg["max_channels"]]
+          print(f"[pass2] profiling {len(top)} channels")
+          for d in top:
+              url = d.get("channel_url")
+              if not url and (d.get("channel_id") or "").startswith("UC"):
+                  url = f"https://www.youtube.com/channel/{d['channel_id']}"
+              if not url:
+                  print(f"[channel] skip {d['channel']} (no url)")
+                  continue
+              url = url.rstrip("/")
+              if not url.endswith("/videos"):
+                  url += "/videos"
+              print(f"[channel] {d['channel']} {url}")
+              out, err = run(["--flat-playlist", "--playlist-items", f"1-{cfg['channel_videos']}", "--dump-json", url])
+              pathlib.Path(f"results/yt_channels/{slug(d['channel'] or d['channel_id'])}.jsonl").write_text(out)
+              print(f"  -> {len(out.splitlines())} lines (err: {(err or 'none')[:160]})")
+              time.sleep(0.5)
+
+          # ---- PASS 3: details for top videos ----
+          details = []
+          for e in combined[:cfg["detail_n"]]:
+              vid = e.get("id")
+              if not vid:
+                  continue
+              print(f"[detail] {vid} {(e.get('title') or '')[:60]}")
+              out, err = run(["--dump-json", "--no-download", f"https://www.youtube.com/watch?v={vid}"])
+              got = False
+              for line in out.splitlines():
+                  if line.startswith("{"):
+                      try:
+                          details.append(json.loads(line))
+                          got = True
+                      except Exception:
+                          pass
+              if not got:
+                  details.append({"id": vid, "title": e.get("title"), "error": (err or "no output")[:300]})
+              time.sleep(0.5)
+          pathlib.Path("results/yt_details/_details.json").write_text(json.dumps(details, indent=1))
+          print(f"[pass3] {len(details)} details")
+          print("DONE")
+          PYEOF
+          tail -5 "$LOG"
+
+      - name: Commit results
+        if: always()
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f results/research_log.txt
+          git add -f results/yt_search
+          git add -f results/yt_channels
+          git add -f results/yt_details
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "yt-research: search+channel+detail passes via actions"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Check status
+        run: |
+          if grep -q "DONE" results/research_log.txt 2>/dev/null; then
+            echo "research OK"
+          else
+            echo "research INCOMPLETE — see results/research_log.txt"
+            exit 1
+          fi

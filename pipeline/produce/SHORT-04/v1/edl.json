@@ -1,0 +1,15 @@
+{
+  "video": "~22.5s @30fps 1080x1920 h264 High crf18 (SHORT-04 v1)",
+  "audio": {"vo": "vo.mp3 (voice-01, TBDs)", "music": "Am/F bed, whoosh@0, subdrop@plank, whooshes at seg transitions, CTA impact"},
+  "story": "Bear In The Passenger Seat — Kerrigan opens passenger door, bear cub eating his lunch; photos; plank eviction; bear exits driver side",
+  "segments": [
+    {"n": "s1", "raw_in": 2.55, "out": 8.05, "key": {"t": 2.8, "x": 725, "y": 350, "note": "bear on seat at open door (reveal)"}},
+    {"n": "s2", "raw_in": 8.5, "out": 14.0, "key": {"t": 3.0, "x": 740, "y": 390, "note": "lunch on seat; man photos at x1040-1210"}},
+    {"n": "s3", "raw_in": 52.9, "out": 57.4, "key": {"t": 1.5, "x": 350, "y": 455, "note": "Kerrigan with plank, left side"}},
+    {"n": "s4", "raw_in": 57.35, "out": 61.85, "key": {"t": 1.0, "x": 1050, "y": 425, "note": "bear outside on driveway, wide view"}}
+  ],
+  "cta_card": {"dur": 2.5, "words": ["SUBSCRIBE", "MONARCH CAM"]},
+  "raw": "pipeline/produce/S04-clips/steamboat_raw.mp4 (BBC cewqzryz12zo via Storyful; crop=1280:500:0:220 kills ALL burned captions)",
+  "captions_plan": ["HE OPENS THE DOOR.", "SOMEONE'S IN THE FRONT SEAT.", "EATING HIS LUNCH.", "HE TAKES A PICTURE.", "A FED BEAR IS A DEAD BEAR.", "OUT COMES THE PLANK.", "CHECKOUT TIME.", "LOCK YOUR DOORS."],
+  "gfx_plan": "timestamp 6:47 AM not used (time unverified) → use 'STEAMBOAT SPRINGS, CO · JUNE 23' badge; ring draw-on on bear reveal; arrow to lunch; brackets at plank; corners+REC+progress+ticks; credit strip 'FOOTAGE: JUSTIN PICKAR VIA STORYFUL'; CTA sweep; micro flashes/shakes at reveal + plank"
+}

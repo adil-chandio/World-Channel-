@@ -1,0 +1,21 @@
+{
+  "id": "SHORT-02_HANDLE",
+  "segments": [
+    {"src": "pipeline/produce/SHORT-02/clips/carwindow.mp4", "in": 0, "out": 5.47, "clip_gain": 0.0},
+    {"src": "pipeline/produce/SHORT-02/clips/door_slow.mp4", "in": 0, "out": 4.8, "clip_gain": 0.0},
+    {"src": "pipeline/produce/SHORT-02/clips/tree_slow.mp4", "in": 0, "out": 4.2, "clip_gain": 0.0},
+    {"src": "pipeline/produce/SHORT-02/clips/eating.mp4", "in": 0, "out": 4.8, "clip_gain": 0.0}
+  ],
+  "captions": [
+    {"text": "Not random.", "start": 0.8, "dur": 2.0},
+    {"text": "He checks the handle first.", "start": 5.7, "dur": 2.6},
+    {"text": "Then he remembers the house.", "start": 8.7, "dur": 2.6},
+    {"text": "The trash. The night he found food.", "start": 11.6, "dur": 2.7},
+    {"text": "Food conditioning.", "start": 14.6, "dur": 2.2},
+    {"text": "Calm. Deliberate. Repeatable.", "start": 16.9, "dur": 2.3}
+  ],
+  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.5},
+  "vo": "pipeline/produce/SHORT-02/vo.mp3",
+  "vo_gain": 1.0,
+  "music": null
+}

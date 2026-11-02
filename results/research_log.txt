@@ -1,0 +1,56 @@
+=== yt-research Mon Nov  2 00:00:52 UTC 2026 ===
+yt-dlp: 2026.10.26
+[search] emotional story animation shorts
+  -> 20 new (err: none)
+[search] stickman animation story
+  -> 20 new (err: none)
+[search] storytime animation
+  -> 20 new (err: none)
+[search] animal shorts viral 2026
+  -> 20 new (err: none)
+[search] viral shorts 2026 trending
+  -> 17 new (err: none)
+[search] wholesome animal video
+  -> 20 new (err: none)
+[search] sad story animation
+  -> 13 new (err: none)
+[search] ai animation shorts
+  -> 18 new (err: none)
+[search] bear viral shorts
+  -> 20 new (err: none)
+[search] animated storytime shorts
+  -> 19 new (err: none)
+[pass1] 187 unique videos
+[pass2] profiling 8 channels
+[channel] Dogs Inc https://www.youtube.com/channel/UCaZX9C1LPOpzsJfZe5BxDjw/videos
+  -> 15 lines (err: none)
+[channel] CGMeetup https://www.youtube.com/channel/UCrSvhrtUgpZT3EU0x1Zoy-w/videos
+  -> 15 lines (err: none)
+[channel] GULU Animation https://www.youtube.com/channel/UCEAL-rbCTrdmNAYpohMRT_g/videos
+  -> 7 lines (err: none)
+[channel] TheCGBros https://www.youtube.com/channel/UC-1rx8j9Ggp8mp4uD0ZdEIA/videos
+  -> 15 lines (err: none)
+[channel] skip dopdoc and Yuliia Outdoor (no url)
+[channel] Stratostorm https://www.youtube.com/channel/UC7bLY5wa6rzuj7rMy6MXISw/videos
+  -> 4 lines (err: none)
+[channel] MAD LAB https://www.youtube.com/channel/UCen0ko30XIeN5IARS3E_Znw/videos
+  -> 15 lines (err: none)
+[channel] Horror Skunx https://www.youtube.com/channel/UCTjF8TNC7blVsBtWyMrsj4A/videos
+  -> 15 lines (err: none)
+[detail] 07d2dXHYb94 Pip | A Short Animated Film by Dogs Inc
+[detail] lTxn2BuqyzU CGI Animated Short Film: "Watermelon A Cautionary Tale" by K
+[detail] XXhsh9nvgyg CGI Animated Short Film: "First Comes Love" by Daniel Ceball
+[detail] Wlf1T5nrO50 The Bread - Animated Short Film by GULU
+[detail] j8PDTJNaPc0 CGI Animated Short Film: "Don't Croak" by Daun Kim | CGMeetu
+[detail] D_Rx4qZ8QRc CGI 3D Animated Short: "Take Me Home" - by Nair Archawattana
+[detail] P7k2MkVYLDE CGI Animated Short: "Runaway" - by Susan Yung, Emily Springe
+[detail] eK0pO79YkvY Bear Attack, Man is trying to run away from attacking Bear: 
+[detail] Bl1FOKpFY2Q UMBRELLA | Oscar® Qualified and Multi-Award Winning Animated
+[detail] 60g7D6QF1xM Animals Reunited With Owners After Years !
+[detail] sZ6SvR9OxK0 CatNap's Sad Origin Story (From Poppy Playtime 3)
+[detail] 9HEkdFzHLHs "A Folded Wish" | CGI Animated Short Film (2020)
+[detail] ZW27ubHprMo Best Moments Of Animals That Asked People for Help in 2022 !
+[detail] JOWiPx5VRUU Scarlett - animated short (Scarlett Contra el Cancer)
+[detail] HpoVwhSVI38 Mom - A Mother, Missing Home // Viddsee.com
+[pass3] 15 details
+DONE

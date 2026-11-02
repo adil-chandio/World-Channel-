@@ -1,0 +1,25 @@
+# GOOGLE FLOW (VEO 3) PROMPT PACKAGE — NIGHT SHIFT EP-01 "The Sandwich Heist"
+# 9:16 vertical · 7 shots · Scenebuilder se jodein · Bandit reference image = Ingredients
+# CHARACTER BLOCK (har shot me repeat karein):
+# "a cute 3D animated baby black bear cub with round ears, soft black fur, a warm cinnamon-colored muzzle, a small torn notch in his left ear, and a tiny red backpack, big mischievous friendly eyes, Pixar-quality stylized fur"
+
+SHOT 1 — THE PRIZE (~3s)
+Extreme close-up: a wrapped sandwich, a bag of chips and cookies on a truck's passenger seat, glowing in a sliver of moonlight through the windshield. A furry paw slowly reaches into frame and grabs the sandwich. Slow push-in, shallow depth of field. Style: cinematic 3D animation, Pixar-quality stylized fur, soft volumetric night lighting, vertical 9:16. Audio: gentle playful music, soft crickets; a warm, dry, mischievous male narrator voice, like a funny bedtime story: "Sandwich. Chips. Cookies. My greatest adventure."
+
+SHOT 2 — THE DOOR (~7s)
+Wide shot: 3 AM, quiet suburban driveway, light fog, stars above, a grey pickup truck parked. A cute 3D animated baby black bear cub with round ears, soft black fur, a warm cinnamon-colored muzzle, a small torn notch in his left ear, and a tiny red backpack, big mischievous friendly eyes, trots to the passenger door, stands on hind legs, pulls the door handle — the door swings open. Low-angle hero shot as it opens, moonlight rim light on his fur. Style: cinematic 3D animation, Pixar-quality, soft volumetric night lighting, vertical 9:16. Audio: crickets and night ambience, tiny footsteps, a door handle click; the same warm mischievous male narrator: "Three in the morning. A pickup truck in the driveway. Door unlocked. So kind. I give it a pull… and we're in."
+
+SHOT 3 — FROZEN (~7s)
+Truck interior at night. The baby black bear cub [CHARACTER BLOCK] sits on the passenger seat mid-bite of a sandwich, crumbs flying, pure joy. Suddenly a soft-focus silhouette of a sleepy man in a grey hoodie blocks the door frame — no face detail. Both freeze in a comedy freeze-frame for a beat. Shallow depth of field, moonlight rim light on the cub. Style: cinematic 3D animation, Pixar-quality, vertical 9:16. Audio: crunching bites, then sudden silence; the narrator: "Jackpot. I'm mid-bite when the human opens the door… and just stands there. Frozen."
+
+SHOT 4 — THE FLASH & THE PLANK (~7s)
+The silhouette raises a phone — a camera flash pops bright. Cut to: the sleepy man in the grey hoodie (soft-focus, no face) walking back toward the truck carrying a long wooden plank like a toy lance in an absurd wide stance, comedy framing. The cub [CHARACTER BLOCK] watches from the passenger seat, head tilted, completely unimpressed. Style: cinematic 3D animation, Pixar-quality, soft volumetric night lighting, vertical 9:16. Audio: camera flash pop, comedic music; the narrator: "Then he takes a picture. Really, sir? Then he comes back with a plank of wood."
+
+SHOT 5 — DIGNITY EXIT (~7s)
+The cub [CHARACTER BLOCK] rolls his eyes, hops over the center console to the driver's seat and exits out the driver's side door. Slow-motion dignified walk away from the truck across the moonlit driveway — backpack on, sandwich in paw, chin up. Style: cinematic 3D animation, Pixar-quality, moonlight rim light, shallow depth of field, vertical 9:16. Audio: slow-motion whoosh, tiny proud footsteps; the narrator: "Buddy… this is a sandwich, not a fortress. So I leave. Out the driver's side. With dignity."
+
+SHOT 6 — WORTH IT (~4s)
+Extreme close-up on the cub's face [CHARACTER BLOCK]: a slow smirk, one eyebrow raised, a crumb on his muzzle. Hold on the expression, moonlight in his eyes. Style: cinematic 3D animation, Pixar-quality, shallow depth of field, vertical 9:16. Audio: music pauses; the narrator in a proud whisper: "…Worth it." A soft warm music swell.
+
+SHOT 7 — INTO THE NIGHT (~8s)
+Final shot: the cub [CHARACTER BLOCK] walks away down the driveway into the night, tiny red backpack visible, sandwich in paw. Camera slowly pulls UP and TILTS to the starry sky, ending on his tiny silhouette walking under the big moon. Peaceful, funny, warm ending. Style: cinematic 3D animation, Pixar-quality, soft volumetric night lighting, stars, vertical 9:16. Audio: crickets and gentle warm music only, no narration.

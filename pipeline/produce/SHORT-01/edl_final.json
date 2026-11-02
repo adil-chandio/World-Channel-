@@ -1,0 +1,19 @@
+{
+  "id": "SHORT-01_FINAL",
+  "segments": [
+    {"src": "google_drive/Monarch_Cam_Bears_Invisible_Map_MOTION_CGI_V14_FINAL.mp4",
+     "in": 0, "out": 25.0, "clip_gain": 0.4}
+  ],
+  "captions": [
+    {"text": "He is NOT wandering.", "start": 2.0, "dur": 2.3},
+    {"text": "He's reading the neighborhood.", "start": 4.6, "dur": 2.6},
+    {"text": "Trash. Grill. Fruit.", "start": 7.8, "dur": 2.7},
+    {"text": "One easy meal...", "start": 11.2, "dur": 2.3},
+    {"text": "written into memory.", "start": 13.8, "dur": 2.4},
+    {"text": "Tomorrow night. Same line.", "start": 16.5, "dur": 2.7}
+  ],
+  "end_cta": {"text": "FULL STORY ON MONARCH CAM", "dur": 1.5},
+  "vo": "pipeline/produce/SHORT-01/vo_v2.mp3",
+  "vo_gain": 1.0,
+  "music": null
+}

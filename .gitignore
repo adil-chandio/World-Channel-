@@ -1,0 +1,18 @@
+# media & render artifacts (keep out of git)
+media/
+output/
+pipeline/**/_render/
+pipeline/**/_render_shorts/
+pipeline/forensics/frames/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+tools/_vendor/
+
+# os
+.DS_Store
+Thumbs.db
+google_drive/

@@ -1,0 +1,465 @@
+{
+ "input": "/tmp/s04_assembled.mp4",
+ "output": "/tmp/s04_gfx.mp4",
+ "duration": 22.52,
+ "gfx_dir": "pipeline/produce/SHORT-04/v1/gfx",
+ "elements": [
+  {
+   "kind": "vignette",
+   "at": 0.0,
+   "dur": 22.52,
+   "x": 0,
+   "y": 0,
+   "fade_in": 0.6,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "timestamp",
+   "text": "JUN 23",
+   "sub": "STEAMBOAT SPRINGS, CO",
+   "at": 0.3,
+   "dur": 21.8,
+   "x": 55,
+   "y": 55,
+   "fade_in": 0.35,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "rec",
+   "at": 0.35,
+   "dur": 21.75,
+   "x": 880,
+   "y": 55,
+   "fade_in": 0.3,
+   "fade_out": 0.35
+  },
+  {
+   "kind": "corners",
+   "at": 0.4,
+   "dur": 21.7,
+   "x": 0,
+   "y": 0,
+   "fade_in": 0.5,
+   "fade_out": 0.35
+  },
+  {
+   "kind": "bar",
+   "color": [
+    22,
+    22,
+    28,
+    115
+   ],
+   "at": 0.3,
+   "dur": 21.9,
+   "x": 0,
+   "y": 1868,
+   "fade_in": 0.3,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "progress",
+   "color": [
+    255,
+    255,
+    255,
+    185
+   ],
+   "chunks": 22,
+   "at": 0.3,
+   "dur": 21.9,
+   "x": 0,
+   "y": 1870,
+   "fade_in": 0.3,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 0.2,
+   "dur": 21.8,
+   "x": 29,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 2.55,
+   "dur": 19.45,
+   "x": 137,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 5.65,
+   "dur": 16.35,
+   "x": 280,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 7.95,
+   "dur": 14.05,
+   "x": 386,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 9.95,
+   "dur": 12.05,
+   "x": 478,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 12.3,
+   "dur": 9.7,
+   "x": 587,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 14.65,
+   "dur": 7.35,
+   "x": 695,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "tick",
+   "at": 17.3,
+   "dur": 4.699999999999999,
+   "x": 819,
+   "y": 1866,
+   "fade_in": 0.2,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "credit_bar",
+   "text": "FOOTAGE: JUSTIN PICKAR VIA STORYFUL",
+   "at": 8.0,
+   "dur": 3.2,
+   "x": 55,
+   "y": 1770,
+   "x_from": -720,
+   "fade_in": 0.25,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "spotlight",
+   "at": 2.6,
+   "dur": 1.95,
+   "x": 0,
+   "y": 0,
+   "fade_in": 0.3,
+   "fade_out": 0.55
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 0,
+   "size": 380,
+   "at": 3.2,
+   "dur": 2.3,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 1,
+   "size": 380,
+   "at": 3.25,
+   "dur": 2.25,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 2,
+   "size": 380,
+   "at": 3.3000000000000003,
+   "dur": 2.1999999999999997,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 3,
+   "size": 380,
+   "at": 3.35,
+   "dur": 2.15,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 4,
+   "size": 380,
+   "at": 3.4000000000000004,
+   "dur": 2.0999999999999996,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 5,
+   "size": 380,
+   "at": 3.45,
+   "dur": 2.05,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 6,
+   "size": 380,
+   "at": 3.5,
+   "dur": 1.9999999999999998,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_arc",
+   "seg": 7,
+   "size": 380,
+   "at": 3.5500000000000003,
+   "dur": 1.9499999999999997,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.14,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_analytic",
+   "size": 380,
+   "at": 3.58,
+   "dur": 1.9,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.28,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "ring_analytic",
+   "size": 415,
+   "at": 4.15,
+   "dur": 0.32,
+   "x": 540,
+   "y": 654,
+   "fade_in": 0.1,
+   "fade_out": 0.16
+  },
+  {
+   "kind": "arrow",
+   "at": 5.9,
+   "dur": 2.15,
+   "x": 150,
+   "y": 700,
+   "x_from": -190,
+   "fade_in": 0.3,
+   "fade_out": 0.35
+  },
+  {
+   "kind": "bracket",
+   "dir": "TL",
+   "at": 11.35,
+   "dur": 1.9,
+   "x": 300,
+   "y": 520,
+   "x_from": 278,
+   "y_from": 498,
+   "fade_in": 0.22,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "bracket",
+   "dir": "TR",
+   "at": 11.43,
+   "dur": 1.9,
+   "x": 1040,
+   "y": 520,
+   "x_from": 1062,
+   "y_from": 498,
+   "fade_in": 0.22,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "bracket",
+   "dir": "BL",
+   "at": 11.39,
+   "dur": 1.9,
+   "x": 300,
+   "y": 1080,
+   "x_from": 278,
+   "y_from": 1102,
+   "fade_in": 0.22,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "bracket",
+   "dir": "BR",
+   "at": 11.47,
+   "dur": 1.9,
+   "x": 1040,
+   "y": 1080,
+   "x_from": 1062,
+   "y_from": 1102,
+   "fade_in": 0.22,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "triangle",
+   "at": 15.7,
+   "dur": 2.6,
+   "x": 520,
+   "y": 755,
+   "x_from": 440,
+   "fade_in": 0.22,
+   "fade_out": 0.3
+  },
+  {
+   "kind": "progress",
+   "color": [
+    230,
+    70,
+    58,
+    235
+   ],
+   "chunks": 8,
+   "w_px": 280,
+   "at": 10.0,
+   "dur": 0.28,
+   "x": 400,
+   "y": 1748,
+   "fade_in": 0,
+   "fade_out": 0
+  },
+  {
+   "kind": "bar",
+   "color": [
+    230,
+    70,
+    58,
+    235
+   ],
+   "w_px": 280,
+   "at": 10.27,
+   "dur": 1.9,
+   "x": 400,
+   "y": 1748,
+   "fade_in": 0.12,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "progress",
+   "color": [
+    230,
+    70,
+    58,
+    235
+   ],
+   "chunks": 8,
+   "w_px": 280,
+   "at": 17.35,
+   "dur": 0.28,
+   "x": 400,
+   "y": 1748,
+   "fade_in": 0,
+   "fade_out": 0
+  },
+  {
+   "kind": "bar",
+   "color": [
+    230,
+    70,
+    58,
+    235
+   ],
+   "w_px": 280,
+   "at": 17.62,
+   "dur": 1.9,
+   "x": 400,
+   "y": 1748,
+   "fade_in": 0.12,
+   "fade_out": 0.4
+  },
+  {
+   "kind": "sweep",
+   "at": 20.05,
+   "dur": 1.45,
+   "x": -520,
+   "y": -80,
+   "x_drift": 1650,
+   "fade_in": 0.25,
+   "fade_out": 0.35
+  }
+ ],
+ "shakes": [
+  {
+   "at": 0.12,
+   "dur": 0.35,
+   "amp": 3.5
+  },
+  {
+   "at": 3.45,
+   "dur": 0.4,
+   "amp": 4
+  },
+  {
+   "at": 11.0,
+   "dur": 0.45,
+   "amp": 4.2
+  },
+  {
+   "at": 20.0,
+   "dur": 0.4,
+   "amp": 3.5
+  }
+ ],
+ "flashes": [
+  {
+   "at": 0.1,
+   "dur": 0.12,
+   "alpha": 38
+  },
+  {
+   "at": 3.42,
+   "dur": 0.12,
+   "alpha": 32
+  },
+  {
+   "at": 10.98,
+   "dur": 0.12,
+   "alpha": 30
+  },
+  {
+   "at": 20.0,
+   "dur": 0.12,
+   "alpha": 36
+  }
+ ]
+}
